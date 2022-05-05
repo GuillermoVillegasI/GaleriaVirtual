@@ -88,4 +88,11 @@ public class Usuario {
         this.alta = alta;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nickname=" + nickname + ", mail=" + mail + ", contrasenia=" + contrasenia + ", estado=" + estado + ", rol=" + rol + ", alta=" + alta + '}';
+    }
+    
+    
+
 }

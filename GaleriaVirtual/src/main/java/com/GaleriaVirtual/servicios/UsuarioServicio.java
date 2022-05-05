@@ -106,6 +106,9 @@ public class UsuarioServicio implements UserDetailsService {
 
     }
 
+     
+    
+
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
         Usuario usuario = (Usuario) usuarioRepositorio.buscarPorMail(mail);
@@ -125,4 +128,5 @@ public class UsuarioServicio implements UserDetailsService {
             return null;
         }
     }
+    
 }

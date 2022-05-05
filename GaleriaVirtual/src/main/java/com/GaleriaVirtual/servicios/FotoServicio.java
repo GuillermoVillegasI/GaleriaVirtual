@@ -16,7 +16,7 @@ public class FotoServicio {
     private FotoRepositorio fotoRepositorio;
 
     @Transactional(rollbackFor = {Exception.class})
-    public Foto guardar(MultipartFile archivo) throws Exception {
+    public Foto guardar(MultipartFile archivo) throws ErrorServicio {
 
         if (archivo != null && !archivo.isEmpty()) {
             try {
@@ -34,7 +34,7 @@ public class FotoServicio {
     }
 
     @Transactional(rollbackFor = {Exception.class})
-    public Foto actualizar(String idFoto, MultipartFile archivo) throws Exception {
+    public Foto actualizar(String idFoto, MultipartFile archivo) throws ErrorServicio {
         if (archivo != null) {
             try {
                 Foto foto = new Foto();
@@ -57,7 +57,7 @@ public class FotoServicio {
     }
 
     @Transactional(rollbackFor = {Exception.class})
-    public void deshabilitar(String id) throws Exception {
+    public void deshabilitar(String id) throws ErrorServicio {
         Optional<Foto> respuesta = fotoRepositorio.findById(id);
         if (respuesta.isPresent()) {
             Foto foto = respuesta.get();
@@ -65,17 +65,17 @@ public class FotoServicio {
             fotoRepositorio.save(foto);
 
         } else {
-            throw new Exception("La foto no existe");
+            throw new ErrorServicio("La foto no existe");
         }
     }
 
     @Transactional(readOnly = true)
-    public Foto buscarPorId(String id) throws Exception {
+    public Foto buscarPorId(String id) throws ErrorServicio {
         Optional<Foto> respuesta = fotoRepositorio.findById(id);
         if (respuesta.isPresent()) {
             return respuesta.get();
         } else {
-            throw new Exception("La foto no existe.");
+            throw new ErrorServicio("La foto no existe.");
         }
     }
 }
