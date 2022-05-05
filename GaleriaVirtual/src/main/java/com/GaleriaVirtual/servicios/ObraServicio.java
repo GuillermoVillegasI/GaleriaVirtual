@@ -1,6 +1,8 @@
 package com.GaleriaVirtual.servicios;
 
+import com.GaleriaVirtual.entidades.Foto;
 import com.GaleriaVirtual.entidades.Obra;
+import com.GaleriaVirtual.entidades.Usuario;
 import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.repositorios.ObraRepositorio;
@@ -16,6 +18,10 @@ public class ObraServicio {
     
     @Autowired 
     private ObraRepositorio obraRepositorio;
+    @Autowired 
+    private UsuarioServicio usuarioServicio;
+    @Autowired 
+    private FotoServicio fotoServicio;
     
     @Transactional(rollbackFor = {Exception.class})
     public Obra guardar(String titulo, String tamanio, String artista, String descripcion, Integer anio, Integer cantidad,

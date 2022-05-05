@@ -7,6 +7,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -34,15 +35,15 @@ public class Obra {
     @OneToOne
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
-    //@OneToMany
-    //private Foto foto;
-    //@ManyToOne
-    //private Usuario usuario;
+    @OneToMany
+    private Foto foto;
+    @ManyToOne
+    private Usuario usuario;
 
     public Obra() {
     }
 
-    public Obra(String id, String titulo, String tamanio, String artista, String descripcion, Integer anio, Integer cantidad, float precio, boolean estado, Date alta, Categoria categoria, Integer vendido) {
+    public Obra(String id, String titulo, Usuario usuario, Foto foto, String tamanio, String artista, String descripcion, Integer anio, Integer cantidad, float precio, boolean estado, Date alta, Categoria categoria, Integer vendido) {
         this.id = id;
         this.titulo = titulo;
         this.tamanio = tamanio;
@@ -55,7 +56,27 @@ public class Obra {
         this.alta = alta;
         this.categoria = categoria;
         this.vendido = vendido;
+        this.usuario = usuario;
+        this.foto = foto;
     }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
 
     public String getId() {
         return id;
@@ -155,8 +176,10 @@ public class Obra {
 
     @Override
     public String toString() {
-        return "Obra{" + "id=" + id + ", titulo=" + titulo + ", tamanio=" + tamanio + ", artista=" + artista + ", descripcion=" + descripcion + ", anio=" + anio + ", cantidad=" + cantidad + ", vendido=" + vendido + ", precio=" + precio + ", estado=" + estado + ", alta=" + alta + ", categoria=" + categoria + '}';
+        return "Obra{" + "id=" + id + ", titulo=" + titulo + ", tamanio=" + tamanio + ", artista=" + artista + ", descripcion=" + descripcion + ", anio=" + anio + ", cantidad=" + cantidad + ", vendido=" + vendido + ", precio=" + precio + ", estado=" + estado + ", alta=" + alta + ", categoria=" + categoria + ", foto=" + foto + ", usuario=" + usuario + '}';
     }
+
+   
 
     
     
