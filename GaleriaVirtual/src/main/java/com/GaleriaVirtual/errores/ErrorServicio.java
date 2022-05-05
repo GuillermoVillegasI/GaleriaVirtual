@@ -9,6 +9,9 @@ package com.GaleriaVirtual.errores;
  *
  * @author Guille
  */
-public class ErrorServicio {
+public class ErrorServicio extends Exception{
     
+    public ErrorServicio(String msj){
+        super(msj);
+    }       
 }
