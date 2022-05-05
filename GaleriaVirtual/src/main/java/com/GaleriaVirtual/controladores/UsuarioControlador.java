@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
-public class PortalControlador {
-    
-    @GetMapping("/")
-    public String index() {
-        return "index.html";
+@RequestMapping("/usuario")
+public class UsuarioControlador {
+
+    @GetMapping("/usuario")
+    public String usuario() {
+        return usuario.html;
+
     }
 }
