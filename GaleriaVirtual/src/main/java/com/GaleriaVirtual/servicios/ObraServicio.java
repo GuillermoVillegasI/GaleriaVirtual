@@ -81,7 +81,7 @@ public class ObraServicio {
             throw new ErrorServicio("El año no puede ser nulo");
         }
             
-            Optional<Obra> respuesta = obraRepositorio.findAllById(id);
+            Optional<Obra> respuesta = obraRepositorio.findById(id);
             if (respuesta.isPresent()) {
             Obra obra = respuesta.get();
             obra.setTitulo(titulo);
@@ -105,7 +105,7 @@ public class ObraServicio {
         if (id == null||id.isEmpty()) {
             throw new ErrorServicio("El id no puede ser nulo");
         }
-        Optional<Obra> respuesta = obraRepositorio.findAllById(id);
+        Optional<Obra> respuesta = obraRepositorio.findById(id);
         if (respuesta.isPresent()) {
             Obra obra = respuesta.get();
             if (obra.getEstado()== true) {
@@ -130,15 +130,15 @@ public class ObraServicio {
         }
     }
      // por ver
-    /*public void stockActual(Integer vendido, Integer cantidad) throws ErrorServicio{
-        
-        Obra obra = obraRepositorio();
-        
-        Integer resultado = obra.getCantidad() - vendido;
-        obra.setCantidad(resultado);
-        
-        if (cantidad == 0) {
-             throw new ErrorServicio("No hay stock");
-        }
-    }*/
+//    public void stockActual(Integer vendido, Integer cantidad) throws ErrorServicio{
+//        
+//        Obra obra = obraRepositorio();
+//        
+//        Integer resultado = obra.getCantidad() - vendido;
+//        obra.setCantidad(resultado);
+//        
+//        if (cantidad == 0) {
+//             throw new ErrorServicio("No hay stock");
+//        }
+//    }
 }
