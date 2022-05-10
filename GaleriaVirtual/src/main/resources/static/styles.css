@@ -1,0 +1,55 @@
+body{
+    background-image: url(Imagenes/fondo.webp);
+    font-family: 'Poppins', sans-serif !important;
+
+}
+h1{
+    
+    text-align: center;
+}
+.nav{
+    background-color: transparent !important;
+
+}
+.tiposarte{
+    list-style-type: none;
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+.tiposarte li{
+    display: inline-block;
+    text-align: center;
+    padding-left: 2cm;
+    margin: 5px;
+}
+.tiposarte li a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.tiposarte li a:hover{
+    background-color:lightgray;
+}
+/*pie de pagina*/
+
+.tabla{
+    margin: 100px;
+    padding: 50px;
+
+}
+.titulofooter{
+    font-size: x-large;
+    font-weight: 600;
+    font-size: small;
+    margin: 200px;
+    padding: 200px;
+}
+.descripfooter{
+    text-align: left;
+    font-size: x-small; 
+    margin: 200px;
+    padding: 200px;
+}
+
