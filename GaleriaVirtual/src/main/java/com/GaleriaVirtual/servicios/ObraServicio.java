@@ -18,8 +18,10 @@ public class ObraServicio {
     
     @Autowired 
     private ObraRepositorio obraRepositorio;
+    
     @Autowired 
     private UsuarioServicio usuarioServicio;
+    
     @Autowired 
     private FotoServicio fotoServicio;
     
@@ -56,7 +58,7 @@ public class ObraServicio {
             obra.setAlta(new Date());
             obra.setCategoria(categoria); //por ver
             Foto foto = fotoServicio.guardar(archivo);
-            obra.setFoto(foto);
+            obra.getFotos().add(foto);
             //investigar como tomar usuario logeado
             Usuario usuario = usuarioServicio.buscarPorId(UsuarioId);
             obra.setUsuario(usuario);
