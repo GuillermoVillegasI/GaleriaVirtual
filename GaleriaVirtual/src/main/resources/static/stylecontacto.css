@@ -1,0 +1,74 @@
+*{
+    color: black;
+    font-weight: 600 !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+    background: url(img/fondo-textura-madera-pintada-blanco_53876-108398.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#header {
+    background-color: white !important;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: -2%;
+}
+
+h2, h4{
+    font-weight: 700 !important;
+    text-decoration: underline;
+}
+h5:hover {
+    padding: 1px;
+  }
+.row{
+    margin: 50px 100px !important;
+}
+.col{
+    text-align: center;
+    margin: 50px !important;
+
+}
+.infocontacto{
+    text-align: left !important;
+    margin: 40px 50px 30px 50px;
+}
+.form-control{
+    border: 1.5px solid black !important;
+}
+.btn{
+    font-weight: 600;
+    margin: 50px;
+    background: #15226b !important;
+    border: 1px solid #172570 !important;
+}
+.btn:hover {
+    margin: 50px;
+    background: transparent !important;
+    color: black !important;
+    border: 1px solid #172570 !important;
+}
+
+.iconos{
+    width: 30px;
+    margin: 5px;
+}
+a{
+    color: black !important;
+    text-decoration: none !important;
+}
+a:hover {
+
+    text-decoration: none ;
+}
+.mb-3, p{
+    font-size: 1.25rem;
+    text-align: left;
+}
+h6{
+    color: red;
+}
