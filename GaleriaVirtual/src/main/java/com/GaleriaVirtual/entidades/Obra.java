@@ -35,7 +35,6 @@ public class Obra {
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
     
-    
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
     
