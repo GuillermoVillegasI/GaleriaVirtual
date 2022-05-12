@@ -24,7 +24,7 @@ public class Usuario {
     private String contrasenia;
     private Boolean estado;
     
-    @OneToOne
+   
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
