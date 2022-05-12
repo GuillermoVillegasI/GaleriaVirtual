@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping()
 public class PortalControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
 
-    @GetMapping("/")
+    @GetMapping()
     public String index() {
-        return "index.html";
+        return "index2.html";
     }
 
     @GetMapping("/registro")
