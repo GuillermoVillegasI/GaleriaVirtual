@@ -179,7 +179,8 @@ public class Obra {
         return "Obra{" + "id=" + id + ", titulo=" + titulo + ", tamanio=" + tamanio + ", artista=" + artista + ", descripcion=" + descripcion + ", anio=" + anio + ", cantidad=" + cantidad + ", vendido=" + vendido + ", precio=" + precio + ", estado=" + estado + ", alta=" + alta + ", categoria=" + categoria + ", foto=" + foto + ", usuario=" + usuario + '}';
     }
 
-   
+
+    
 
     
     
