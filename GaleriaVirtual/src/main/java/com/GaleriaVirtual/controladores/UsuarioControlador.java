@@ -10,7 +10,45 @@ public class UsuarioControlador {
 
     @GetMapping("/usuario")
     public String usuario() {
-        return usuario.html;
-
+        return "usuario.html";
     }
+
+      @GetMapping("/")
+    public String index() {
+        return "index.html";
+    }
+
+    @GetMapping("/xxx")
+    public String xxx() {
+        return "xxx.html";
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

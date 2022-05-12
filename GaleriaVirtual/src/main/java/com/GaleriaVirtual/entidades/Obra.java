@@ -2,6 +2,7 @@ package com.GaleriaVirtual.entidades;
 
 import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -28,55 +29,23 @@ public class Obra {
     private Integer anio;
     private Integer cantidad;
     private Integer vendido;
-    private float precio;
-    private boolean estado;
+    private Float precio;
+    private Boolean estado;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
-    @OneToOne
+    
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
+    
     @OneToMany
-    private Foto foto;
+    private List<Foto> fotos;
+    
     @ManyToOne
     private Usuario usuario;
 
     public Obra() {
     }
-
-    public Obra(String id, String titulo, Usuario usuario, Foto foto, String tamanio, String artista, String descripcion, Integer anio, Integer cantidad, float precio, boolean estado, Date alta, Categoria categoria, Integer vendido) {
-        this.id = id;
-        this.titulo = titulo;
-        this.tamanio = tamanio;
-        this.artista = artista;
-        this.descripcion = descripcion;
-        this.anio = anio;
-        this.cantidad = cantidad;
-        this.precio = precio;
-        this.estado = estado;
-        this.alta = alta;
-        this.categoria = categoria;
-        this.vendido = vendido;
-        this.usuario = usuario;
-        this.foto = foto;
-    }
-
-    public Foto getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Foto foto) {
-        this.foto = foto;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-    
-    
 
     public String getId() {
         return id;
@@ -134,19 +103,27 @@ public class Obra {
         this.cantidad = cantidad;
     }
 
-    public float getPrecio() {
+    public Integer getVendido() {
+        return vendido;
+    }
+
+    public void setVendido(Integer vendido) {
+        this.vendido = vendido;
+    }
+
+    public Float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(Float precio) {
         this.precio = precio;
     }
 
-    public boolean getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
@@ -157,31 +134,29 @@ public class Obra {
     public void setAlta(Date alta) {
         this.alta = alta;
     }
-    
-    public Categoria getCategoria(){
+
+    public Categoria getCategoria() {
         return categoria;
     }
-    
-    public void setCategoria(Categoria categoria){
+
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    public Integer getVendido() {
-        return vendido;
+    public List<Foto> getFotos() {
+        return fotos;
     }
 
-    public void setVendido(Integer vendido) {
-        this.vendido = vendido;
+    public void setFotos(List<Foto> fotos) {
+        this.fotos = fotos;
     }
 
-    @Override
-    public String toString() {
-        return "Obra{" + "id=" + id + ", titulo=" + titulo + ", tamanio=" + tamanio + ", artista=" + artista + ", descripcion=" + descripcion + ", anio=" + anio + ", cantidad=" + cantidad + ", vendido=" + vendido + ", precio=" + precio + ", estado=" + estado + ", alta=" + alta + ", categoria=" + categoria + ", foto=" + foto + ", usuario=" + usuario + '}';
+    public Usuario getUsuario() {
+        return usuario;
     }
-
-
     
-
-    
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     
 }

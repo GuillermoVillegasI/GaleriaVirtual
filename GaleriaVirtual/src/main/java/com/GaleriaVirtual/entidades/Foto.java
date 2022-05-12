@@ -1,4 +1,3 @@
-
 package com.GaleriaVirtual.entidades;
 
 import javax.persistence.Basic;
@@ -9,20 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Entity
 public class Foto {
 
-@Id 
-@GeneratedValue(generator="uuid")
-@GenericGenerator(name="uuid",strategy="uuid2")
-private String id;
-private String nombre;
-private String mime;
-private boolean alta;
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
+    private String nombre;
+    private String mime;
+    private Boolean alta;
 
-@Lob @Basic(fetch= FetchType.LAZY)
-private byte[] contenido;
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] contenido;
 
     public boolean getAlta() {
         return alta;
@@ -88,8 +87,4 @@ private byte[] contenido;
         this.contenido = contenido;
     }
 
- 
-     
-    
-    
 }
