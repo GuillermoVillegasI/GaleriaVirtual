@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ObraRepositorio extends JpaRepository<Obra, String> {
-   
+
 }
