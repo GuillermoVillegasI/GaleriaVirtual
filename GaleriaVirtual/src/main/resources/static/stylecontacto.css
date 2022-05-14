@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family:'Poppins', sans-serif;
-    background: url(img/fondo-textura-madera-pintada-blanco_53876-108398.webp);
+    background-image: url(https://img.freepik.com/foto-gratis/fondo-textura-madera-pintada-blanco_53876-108398.jpg?t=st=1651711051~exp=1651711651~hmac=d2a8adeeaa3548b2b596f4ea297e16a547678c6139e5d56cd87f77e008c8c698&w=1060);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -40,13 +40,13 @@ h5:hover {
 .form-control{
     border: 1.5px solid black !important;
 }
-.btn{
+#btncontacto{
     font-weight: 600;
     margin: 50px;
     background: #15226b !important;
     border: 1px solid #172570 !important;
 }
-.btn:hover {
+#btncontacto:hover {
     margin: 50px;
     background: transparent !important;
     color: black !important;
