@@ -2,10 +2,7 @@ package com.GaleriaVirtual.controladores;
 
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.servicios.UsuarioServicio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +19,7 @@ public class PortalControlador {
 
     @GetMapping("/")
     public String index() {
-        return "index.html";
+        return "index2.html";
     }
 
     @GetMapping("/registro")
