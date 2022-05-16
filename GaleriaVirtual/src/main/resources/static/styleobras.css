@@ -1,27 +1,29 @@
-
+#header{
+    background-color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: -2%;
+  }
 .col
  {
     font-Family: Poppins, sans-serif;
-   
- }
+    width: 300px; 
+    flex-wrap:wrap ;
+}
  .card-title
 {
-    
     text-align: center;
-   
+    text-shadow: 1px 1px;
 }
-.card-text
-{
-    text-align: center;
-}
-.col img {
+.col img{
     margin-top: 50px;
-    margin-left: 15px;
     max-width: 1000px;
-    display: flex;
-    width:90%;
-    height: 300px;
+    width: 90%;
+    height: 300px; 
     flex-wrap:wrap ;
     object-fit: contain;
     justify-content: space-around;
+    align-self: center; 
 }
+
+   

@@ -35,7 +35,6 @@ public class Obra {
     @Temporal(TemporalType.TIMESTAMP)
     private Date alta;
     
-    
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
     
@@ -155,10 +154,9 @@ public class Obra {
     public Usuario getUsuario() {
         return usuario;
     }
-
+    
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
     
 }
