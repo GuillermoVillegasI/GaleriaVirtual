@@ -21,9 +21,15 @@ public class PortalControlador {
     private UsuarioServicio usuarioServicio;
 
     @GetMapping()
-    public String index() {
+    public String index2() {
         return "index2.html";
     }
+    
+     @GetMapping("/index")
+    public String index() {
+        return "index.html";
+    }
+    
 
     @GetMapping("/registro")
     public String registro() {
@@ -45,7 +51,7 @@ public class PortalControlador {
         }
         modelo.put("titulo", "Bienvenido a la Galería de Arte Tamago!");
         modelo.put("descripcion", "Logeate para comenzar");
-        return "/";
+        return "/index";
 
     }
 
@@ -54,7 +60,7 @@ public class PortalControlador {
         if (error != null) {
             model.put("error", "Usuario o contraseña incorrecta  .");
         }
-        return "login.html";
+        return "/index";
     }
 
 //    @PreAuthorize("hasAnyRol('ROL_USER_REGISTRADO')")
