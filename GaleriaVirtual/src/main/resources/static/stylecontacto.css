@@ -1,4 +1,5 @@
-*{
+
+.contacto{
     color: black;
     font-weight: 600 !important;
     margin: 0;
@@ -11,13 +12,12 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-#header {
-    background-color: white !important;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: -2%;
+#header{
+  background:  white !important;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: -2%;
 }
-
 h2, h4{
     font-weight: 700 !important;
     text-decoration: underline;
