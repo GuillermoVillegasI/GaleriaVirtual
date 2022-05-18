@@ -1,11 +1,18 @@
 body{
-    background-image: url(Imagenes/fondo.webp);
-    font-family: 'Poppins', sans-serif !important;
-
+  background-image: url(https://img.freepik.com/foto-gratis/fondo-textura-madera-pintada-blanco_53876-108398.jpg?t=st=1651711051~exp=1651711651~hmac=d2a8adeeaa3548b2b596f4ea297e16a547678c6139e5d56cd87f77e008c8c698&w=1060);
+  background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-h1{
-    
-    text-align: center;
+#header{
+  background-color: white !important;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: -2% ;
+  }
+.btn {
+  color: white !important;
 }
 .nav{
     background-color: transparent !important;
@@ -32,8 +39,6 @@ h1{
 .tiposarte li a:hover{
     background-color:lightgray;
 }
-/*pie de pagina*/
-
 .tabla{
     margin: 100px;
     padding: 50px;
@@ -56,8 +61,7 @@ td{
     padding: 30px;
 }
 .cont{
-    
-    
     text-align: center;
-        
 }
+
+
