@@ -57,14 +57,14 @@ public class PortalControlador {
 
         try {
             usuarioServicio.registrar(nickname, mail, contrasenia1, contrasenia2);
+            
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("nickname", nickname);
             modelo.put("mail", mail);
             modelo.put("contrasenia1", contrasenia1);
             modelo.put("contrasenia2", contrasenia2);
-            System.out.println(nickname);
-
+            ex.printStackTrace();
             return "registro.html";
         }
         modelo.put("titulo", "Bienvenido a la Galería de Arte Tamago!");
