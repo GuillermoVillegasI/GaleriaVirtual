@@ -1,0 +1,67 @@
+body{
+  background-image: url(https://img.freepik.com/foto-gratis/fondo-textura-madera-pintada-blanco_53876-108398.jpg?t=st=1651711051~exp=1651711651~hmac=d2a8adeeaa3548b2b596f4ea297e16a547678c6139e5d56cd87f77e008c8c698&w=1060);
+  background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#header{
+  background-color: white !important;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: -2% ;
+  }
+.btn {
+  color: white !important;
+}
+.nav{
+    background-color: transparent !important;
+
+}
+.tiposarte{
+    list-style-type: none;
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+.tiposarte li{
+    display: inline-block;
+    text-align: center;
+    padding-left: 2cm;
+    margin: 5px;
+}
+.tiposarte li a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.tiposarte li a:hover{
+    background-color:lightgray;
+}
+.tabla{
+    margin: 100px;
+    padding: 50px;
+
+}
+.titulofooter{
+    font-size: x-large;
+    font-weight: 600;
+    font-size: small;
+    text-align:center ;
+}
+.descripfooter{
+    font-size: x-small; 
+    text-align: center;
+    text-align: justify;
+}
+
+td{
+    width: 23%;
+    padding: 30px;
+}
+.cont{
+    text-align: center;
+}
+
+
