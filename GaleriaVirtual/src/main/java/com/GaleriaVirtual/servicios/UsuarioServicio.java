@@ -39,7 +39,7 @@ public class UsuarioServicio implements UserDetailsService{
         usuario.setMail(mail);
         
         //usuario.setContrasenia1(new BCryptPasswordEncoder().encode(contrasenia1));
-        //usuario.setContrasenia1(contrasenia1);¿?
+        usuario.setContrasenia1(contrasenia1);
         usuario.setAlta(new Date());
         usuario.setEstado(true);
         usuario.setRol(Rol.USER);
