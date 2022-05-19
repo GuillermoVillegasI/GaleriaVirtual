@@ -26,9 +26,9 @@ public class PortalControlador {
     private ObraServicio obraServicio;
 
     @GetMapping()
-    public String index2() {
-        return "index2.html";
-    }
+       public String index2() {
+       return "index2.html";
+       }
 
     @GetMapping("/index")
     public String index(@RequestParam(required = false) String categoria, ModelMap modelo) throws ErrorServicio {
