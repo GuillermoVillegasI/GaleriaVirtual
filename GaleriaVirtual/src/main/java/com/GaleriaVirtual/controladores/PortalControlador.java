@@ -22,7 +22,7 @@ public class PortalControlador {
 
     @GetMapping()
     public String index() {
-        return "index2.html";
+        return "login.html";
     }
 
     @GetMapping("/registro")
