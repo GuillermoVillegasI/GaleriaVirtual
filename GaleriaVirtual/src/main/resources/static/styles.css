@@ -43,13 +43,21 @@ h1{
     font-size: x-large;
     font-weight: 600;
     font-size: small;
-    margin: 200px;
-    padding: 200px;
+    text-align:center ;
 }
 .descripfooter{
-    text-align: left;
     font-size: x-small; 
-    margin: 200px;
-    padding: 200px;
+    text-align: center;
+    text-align: justify;
 }
 
+td{
+    width: 23%;
+    padding: 30px;
+}
+.cont{
+    
+    
+    text-align: center;
+        
+}
