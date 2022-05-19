@@ -1,11 +1,13 @@
 package com.GaleriaVirtual.controladores;
 
+import com.GaleriaVirtual.entidades.Obra;
+import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
+import com.GaleriaVirtual.servicios.ObraServicio;
 import com.GaleriaVirtual.servicios.UsuarioServicio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,9 +22,29 @@ public class PortalControlador {
     @Autowired
     private UsuarioServicio usuarioServicio;
 
+    @Autowired
+    private ObraServicio obraServicio;
+
     @GetMapping()
-    public String index() {
-        return "login.html";
+       public String index2() {
+       return "index2.html";
+       }
+
+    @GetMapping("/index")
+    public String index(@RequestParam(required = false) String categoria, ModelMap modelo) throws ErrorServicio {
+
+        List<Obra> obras = new ArrayList<>();
+
+        if (categoria == null) {
+            obras = obraServicio.buscarTodas();
+        } else {
+            Categoria parsedCategoria = Categoria.valueOf(categoria);
+            obras = obraServicio.buscarPorCategoria(parsedCategoria);
+        }
+
+        modelo.put("obras", obras);
+
+        return "index.html";
     }
 
     @GetMapping("/registro")
@@ -35,17 +57,19 @@ public class PortalControlador {
 
         try {
             usuarioServicio.registrar(nickname, mail, contrasenia1, contrasenia2);
+            
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("nickname", nickname);
             modelo.put("mail", mail);
             modelo.put("contrasenia1", contrasenia1);
             modelo.put("contrasenia2", contrasenia2);
+            ex.printStackTrace();
             return "registro.html";
         }
         modelo.put("titulo", "Bienvenido a la Galería de Arte Tamago!");
         modelo.put("descripcion", "Logeate para comenzar");
-        return "/";
+        return "/index";
 
     }
 
@@ -54,7 +78,7 @@ public class PortalControlador {
         if (error != null) {
             model.put("error", "Usuario o contraseña incorrecta  .");
         }
-        return "login.html";
+        return "/index";
     }
 
 //    @PreAuthorize("hasAnyRol('ROL_USER_REGISTRADO')")
@@ -68,5 +92,4 @@ public class PortalControlador {
 //    public String vender() {
 //        return "vender.html";
 //    }
-    
 }
