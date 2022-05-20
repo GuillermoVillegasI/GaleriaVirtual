@@ -29,6 +29,10 @@ public class PortalControlador {
     public String index2() {
         return "index2.html";
     }
+    @GetMapping("/altaform")
+    public String altaform (){
+        return "altaform.html";
+    }
 
     @GetMapping("/index")
     public String index(@RequestParam(required = false) String categoria, ModelMap modelo) throws ErrorServicio {
