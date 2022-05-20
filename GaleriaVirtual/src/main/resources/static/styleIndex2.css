@@ -73,7 +73,7 @@ img{
   padding-top: 5%;
 }
 
-.boton button{
+.boton a{
   width: 25%;
   height: 40%;
   justify-content: center;
@@ -125,7 +125,7 @@ img{
 
 .baner2 button{
   width: 8%;
-  height: 40%;
+  height: 50%;
   justify-content: center;
   border-radius: 15px;
 }
