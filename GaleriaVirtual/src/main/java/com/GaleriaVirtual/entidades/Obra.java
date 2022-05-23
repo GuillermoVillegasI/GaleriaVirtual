@@ -43,7 +43,7 @@ public class Obra {
     
     @ManyToOne
     private Usuario usuario;
-
+   
     public Obra() {
     }
 
