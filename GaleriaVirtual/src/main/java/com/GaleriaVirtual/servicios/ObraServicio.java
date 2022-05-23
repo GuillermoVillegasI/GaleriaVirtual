@@ -2,10 +2,10 @@ package com.GaleriaVirtual.servicios;
 
 import com.GaleriaVirtual.entidades.Foto;
 import com.GaleriaVirtual.entidades.Obra;
-import com.GaleriaVirtual.entidades.Usuario;
 import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.repositorios.ObraRepositorio;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -60,11 +60,14 @@ public class ObraServicio {
         obra.setAlta(new Date());
         obra.setCategoria(categoria); //por ver
         Foto foto = fotoServicio.guardar(archivo);
+        
+        //horrible
+        obra.setFotos(new ArrayList<>());
+        
         obra.getFotos().add(foto);
-        //investigar como tomar usuario logeado
-        Usuario usuario = usuarioServicio.buscarPorId(UsuarioId);
 
-        obra.setUsuario(usuario);
+//        Usuario usuario = usuarioServicio.buscarPorId(UsuarioId);
+//        obra.setUsuario(usuario);
 
         return obraRepositorio.save(obra);
     }
