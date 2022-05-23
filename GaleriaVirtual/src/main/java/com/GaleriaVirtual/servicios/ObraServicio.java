@@ -7,6 +7,7 @@ import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.repositorios.ObraRepositorio;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,9 @@ public class ObraServicio {
 
     @Transactional(rollbackFor = {Exception.class})
     public Obra guardar(String titulo, String tamanio, String artista, String descripcion, Integer anio, Integer cantidad,
-            float precio, Categoria categoria, MultipartFile archivo, String idUsuario) throws ErrorServicio {
+
+            float precio, boolean estado, Date date, Categoria categoria, MultipartFile archivo, String UsuarioId) throws ErrorServicio {
+
 
         //verificaiones
         if (titulo == null || titulo.isEmpty()) {
@@ -55,10 +58,12 @@ public class ObraServicio {
         obra.setPrecio(precio);
         obra.setEstado(true);
         obra.setAlta(new Date());
-        obra.setCategoria(categoria);
+        obra.setCategoria(categoria); //por ver
         Foto foto = fotoServicio.guardar(archivo);
         obra.getFotos().add(foto);
-        Usuario usuario = usuarioServicio.buscarPorId(idUsuario);
+        //investigar como tomar usuario logeado
+        Usuario usuario = usuarioServicio.buscarPorId(UsuarioId);
+
         obra.setUsuario(usuario);
 
         return obraRepositorio.save(obra);
@@ -141,4 +146,17 @@ public class ObraServicio {
 //             throw new ErrorServicio("No hay stock");
 //        }
 //    }
+
+    public List<Obra> buscarPorCategoria(Categoria categoria) throws ErrorServicio {
+
+        return obraRepositorio.buscarPorCategoria(categoria);
+
+    }
+
+    public List<Obra> buscarTodas() throws ErrorServicio {
+
+        return obraRepositorio.findAll();
+
+    }
+
 }
