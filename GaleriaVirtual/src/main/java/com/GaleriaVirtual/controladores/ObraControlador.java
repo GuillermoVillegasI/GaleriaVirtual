@@ -33,7 +33,7 @@ public class ObraControlador {
     public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
             @RequestParam float precio, @RequestParam Categoria categoria,
-            MultipartFile archivo, @RequestParam String idUsuario) {
+            @RequestParam MultipartFile archivo, @RequestParam(required = false) String idUsuario) {
 
         try {
             

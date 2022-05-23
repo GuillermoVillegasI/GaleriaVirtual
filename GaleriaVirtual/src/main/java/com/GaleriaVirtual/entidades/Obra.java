@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -38,7 +39,7 @@ public class Obra {
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
     
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Foto> fotos;
     
     @ManyToOne
