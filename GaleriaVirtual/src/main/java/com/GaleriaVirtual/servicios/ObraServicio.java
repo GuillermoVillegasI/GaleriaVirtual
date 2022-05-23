@@ -28,7 +28,9 @@ public class ObraServicio {
 
     @Transactional(rollbackFor = {Exception.class})
     public Obra guardar(String titulo, String tamanio, String artista, String descripcion, Integer anio, Integer cantidad,
+
             float precio, boolean estado, Date date, Categoria categoria, MultipartFile archivo, String UsuarioId) throws ErrorServicio {
+
 
         //verificaiones
         if (titulo == null || titulo.isEmpty()) {
@@ -61,6 +63,7 @@ public class ObraServicio {
         obra.getFotos().add(foto);
         //investigar como tomar usuario logeado
         Usuario usuario = usuarioServicio.buscarPorId(UsuarioId);
+
         obra.setUsuario(usuario);
 
         return obraRepositorio.save(obra);
@@ -155,4 +158,5 @@ public class ObraServicio {
         return obraRepositorio.findAll();
 
     }
+
 }

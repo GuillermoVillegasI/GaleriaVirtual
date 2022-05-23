@@ -29,28 +29,16 @@ public class ObraControlador {
         return "obra.html";
     }
 
-    @PostMapping("/obra")
-    public String subirObra(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
-            @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam Integer vendido,
-             @RequestParam float precio) {
-
-        try {
-            //obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, tamanio,estado );
-        } catch (Exception e) {
-            //msj de error
-        }
-        return "/obra";
-
-    }
-
     @PostMapping("/crear")
     public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
-            @RequestParam float precio, @RequestParam boolean estado, @RequestParam Date date,
-            @RequestParam Categoria categoria, MultipartFile archivo, String UsuarioId) throws ErrorServicio {
+            @RequestParam float precio, @RequestParam Categoria categoria,
+            MultipartFile archivo, @RequestParam String idUsuario) {
 
         try {
-            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, precio, estado, date, categoria, archivo, UsuarioId);
+            
+            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, 0, true, new Date(), categoria, archivo, idUsuario);
+       
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("titulo", titulo);
@@ -60,17 +48,12 @@ public class ObraControlador {
             modelo.put("anio", anio);
             modelo.put("cantidad", cantidad);
             modelo.put("precio", precio);
-            //   modelo.put("estado", estado);
-            //   modelo.put("date", date);
             modelo.put("categoria", categoria);
             modelo.put("archivo", archivo);
-            //   modelo.put("UsuarioId", UsuarioId);
             return "registro.html";
         }
         modelo.put("titulo", "Tu obra fue cargada con Exito!");
         return "/obras.html";
 
     }
-
-  
 }
