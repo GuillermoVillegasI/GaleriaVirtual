@@ -21,17 +21,14 @@
     </head>
 
     <body>
-
         <div class="containere sticky-top" id="header" th:insert="navbar.html::navbar">
-
         </div>
-
-        <div class="wrapper" >
+        <div class="wrapper">
             <div class="inner">
                 <div class="image-holder">
                     <img id="paintedFace" src="img/ucopyCustom.jpg" alt="">
                 </div>
-                <form action="">
+                <form action="/logincheck" method="POST">
 
                     <div class="text-center ">
                         <img id="grulla" src="img/logobold.png" alt="Galeria Tamago"> 
@@ -42,15 +39,16 @@
                     <br>
 
                     <div class="form-control pt-0">
-
+                        <p th:if="${error != null}" th:text= "${error}" style="color:red"></p>
+                        <p th:if="${logout != null}" th:text= "${logout}" style="color:green"></p>
                         <div class="form-wrapper">
-                            <input type="text" placeholder="Usuario" class="form-control">
+                            <input type="text" placeholder="Usuario" name="mail" class="form-control">
                             <i class="zmdi zmdi-account"></i>
                         </div>
                         <br>
 
                         <div class="form-wrapper">
-                            <input type="password" placeholder="Contraseña" class="form-control">
+                            <input type="password" placeholder="Contraseña" name="contrasenia1" class="form-control">
                             <i class="zmdi zmdi-lock"></i>
                         </div>
                         <br>
@@ -68,7 +66,7 @@
 
 
                         <div class="texto-registro">
-                            <span>No tenes cuenta? <a href="#">Registrate</a></span> <br>
+                            <span>No tenes cuenta? <a href="/registro">Registrate</a></span> <br>
                             <!-- <span><a href="#">Recupera tu contraseña</a></span> -->
                         </div>
 
@@ -77,6 +75,5 @@
         </div>
     </div>
     <div class="footer" th:insert="navbar.html::footer"></div>
-
 </body>
 </html>
