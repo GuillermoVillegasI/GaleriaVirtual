@@ -11,11 +11,17 @@
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
         <link rel="stylesheet" href="././stylealtaform.css">
+        <link rel="stylesheet" href="././stylenavbar.css">
 
         <title>alta obra</title>
     </head>
 
     <body>
+
+        <div class="containere sticky-top" id="header" th:insert="navbar.html::navbar">
+
+        </div>
+
         <div class="contenedor">
             <form th:action="@{/obra/crear}" method="POST" enctype="multipart/form-data">
                 <!--<input type="hidden" name="idUsuario" th:value="${session.usuariosession.id}">-->
@@ -63,6 +69,8 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="footer" th:insert="navbar.html::footer"></div> 
     </body>
 
 </html>
