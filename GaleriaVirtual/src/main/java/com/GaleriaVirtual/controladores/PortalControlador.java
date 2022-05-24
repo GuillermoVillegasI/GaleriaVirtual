@@ -25,6 +25,11 @@ public class PortalControlador {
     @Autowired
     private ObraServicio obraServicio;
 
+    @GetMapping("/indexpage")
+    public String index() {
+        return "index.html";
+    }
+
     @GetMapping()
     public String index2() {
         return "index2.html";
