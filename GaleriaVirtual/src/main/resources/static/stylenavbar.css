@@ -47,6 +47,8 @@ body{
 }
 .tiposarte li a:hover{
     background-color:lightgray;
+    background-color: black;
+    color: white;
 }
 .tabla{
     margin: 100px;
@@ -71,6 +73,15 @@ td{
 }
 .cont{
     text-align: center;
+}
+.footer{
+    font-size: 10px !important;
+}
+.descripfooter{
+    font-size: 10px !important;
+}
+.titulofooter{
+    font-size: 10px !important;
 }
 
 
