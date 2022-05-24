@@ -29,9 +29,15 @@ public class PortalControlador {
     public String index2() {
         return "index2.html";
     }
+
     @GetMapping("/altaform")
-    public String altaform (){
+    public String altaform() {
         return "altaform.html";
+    }
+
+    @GetMapping("/contacto")
+    public String contacto() {
+        return "contacto.html";
     }
 
     @GetMapping("/index")
@@ -61,7 +67,7 @@ public class PortalControlador {
 
         try {
             usuarioServicio.registrar(nickname, mail, contrasenia1, contrasenia2);
-            
+
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("nickname", nickname);

@@ -12,16 +12,18 @@ h2, h4{
     font-weight: 700 !important;
     text-decoration: underline;
 }
-h5:hover {
-    padding: 1px;
-  }
+h5{
+    font-size: 1.10rem !important ;
+}
 .row{
-    margin: 50px 50px !important;
+    margin: 30px 30px !important;
 }
 .col{
+    padding: 10px 50px;
     text-align: center;
     margin: 10px !important;
     min-width: 450px !important;
+    font-size: 1.10rem
 
 }
 .infocontacto{
@@ -29,7 +31,7 @@ h5:hover {
     margin: 40px 50px 30px 50px;
 }
 .card{
-     
+    
  box-shadow:
  inset 0 -3em 3em rgba(0,0,0,0.1), 0.3em 0.3em 1em rgba(0,0,0,0.3);
  border-radius: 5%;
@@ -45,7 +47,7 @@ h5:hover {
 
     }
 .tarjeta{
-  padding: 20px !important;
+  
   justify-content:center;
     
 }
@@ -55,7 +57,7 @@ h5:hover {
 }
 #btncontacto{
     font-weight: 600 !important;
-    margin: 50px;
+    margin: 15px;
     background: #0d6efd !important;
     border: 1px solid #0d6efd !important;
 }
@@ -80,7 +82,7 @@ a:hover {
     text-decoration: none ;
 }
 .mb-3, p{
-    font-size: 1.25rem;
+    font-size: 1.10rem;
     text-align: left;
 }
 h6{
