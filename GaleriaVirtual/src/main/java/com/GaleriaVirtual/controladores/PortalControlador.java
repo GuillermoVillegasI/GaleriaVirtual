@@ -88,7 +88,7 @@ public class PortalControlador {
         if (error != null) {
             model.put("error", "Usuario o contraseña incorrecta  .");
         }
-        return "/index";
+        return "/login";
     }
 
 //    @PreAuthorize("hasAnyRol('ROL_USER_REGISTRADO')")
