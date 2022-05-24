@@ -1,9 +1,9 @@
 body{
-   background-image: url(img/bg-registration-form-1.png);
+  background-image: url(img/bg-registration-form-1.png);
   background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
     
 }
 #header{
@@ -46,7 +46,6 @@ body{
     display: block;
 }
 .tiposarte li a:hover{
-    background-color:lightgray;
     background-color: black;
     color: white;
 }
