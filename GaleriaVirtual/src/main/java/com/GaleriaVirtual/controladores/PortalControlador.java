@@ -84,9 +84,12 @@ public class PortalControlador {
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(required = false) String error, ModelMap model) {
+    public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {
         if (error != null) {
             model.put("error", "Usuario o contraseña incorrecta  .");
+        }
+        if (logout != null) {
+            model.put("logout", "Cerraste sesión correctamente.");
         }
         return "/login";
     }
