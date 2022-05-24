@@ -1,23 +1,25 @@
 body{
-   background-image: url(img/bg-registration-form-1.png);
-  background-size: cover;
+    background-image: url(img/bg-registration-form-1.png);
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+
 }
 #header{
-  background-color: white !important;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: -2% ;
-  }
+    background-color: white !important;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: -2% ;
+}
 .btn {
-  color: white !important;
+    color: white !important;
+}
+.mb-4{
+    margin-bottom: 0px !important ;
 }
 .nav{
     background-color: transparent !important;
-
 }
 .icononav{
     width: 30px;
@@ -46,14 +48,15 @@ body{
     display: block;
 }
 .tiposarte li a:hover{
-    background-color:lightgray;
     background-color: black;
     color: white;
 }
 .tabla{
     margin: 100px;
     padding: 50px;
-
+    caption-side: bottom;
+    border-collapse: collapse;
+    text-align: justify;
 }
 .titulofooter{
     font-size: x-large;
