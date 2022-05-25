@@ -21,6 +21,22 @@ body{
 .nav{
     background-color: transparent !important;
 }
+
+.navbar-toggler-icon{
+   
+    margin: 2px;
+    display: inline-block!important;
+    width: 1.5em!important;
+    height: 1.5em!important;
+    border: 2px solid black ;
+    border-radius: 50px;
+    
+    vertical-align: middle!important;
+    background: url(https://cdn-icons-png.flaticon.com/512/32/32195.png);
+    background-repeat: no-repeat!important;
+    background-position: center!important;
+    background-size: 100%!important;
+}
 .icononav{
     width: 30px;
     margin: 10px;
