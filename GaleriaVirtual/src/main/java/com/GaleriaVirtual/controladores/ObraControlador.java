@@ -24,9 +24,9 @@ public class ObraControlador {
     @Autowired
     private ObraServicio obraServicio;
 
-    @GetMapping("/obra")
-    public String obra() {
-        return "obra.html";
+    @GetMapping("/obras")
+    public String obras() {
+        return "obras.html";
     }
 
     @PostMapping("/crear")
