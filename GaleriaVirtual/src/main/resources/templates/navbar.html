@@ -29,7 +29,7 @@
     </head>
 
     <!--    NAVBAR JUANMA-->
-    
+
     <body>
         <div class="containere sticky-top" id="header" th:fragment="navbar">
             <header
@@ -40,24 +40,27 @@
 
                 <div class="col-md-3 text-end">
 
-                    <a href="/login" ><img
-                            class="icononav"
-                            src="https://cdn-icons-png.flaticon.com/512/1828/1828499.png"
-                            alt="Login"
-                            /></a>
-                    
-                    <a href="/registro"><img
-                            class="icononav"
-                            src="https://cdn-icons-png.flaticon.com/512/2921/2921087.png"
-                            alt="Registro"
-                            /></a>
+                    <a th:unless="${session.usuariosession == null }" href="/logout">
 
-                    <a href="/contacto"><img
-                            class="icononav"
-                            src="https://cdn-icons-png.flaticon.com/128/1633/1633686.png"
-                            alt="contacto"
-                            /></a>
+                            <a href="/login" ><img
+                                class="icononav"
+                                src="https://cdn-icons-png.flaticon.com/512/1828/1828499.png"
+                                alt="Login"
+                                /></a>
 
+                        <p th:if="${session.usuariosession != null }" th:text="${session.usuariosession.nickname}"></p>   
+
+                        <a href="/registro"><img
+                                class="icononav"
+                                src="https://cdn-icons-png.flaticon.com/512/2921/2921087.png"
+                                alt="Registro"
+                                /></a>
+
+                        <a href="/contacto"><img
+                                class="icononav"
+                                src="https://cdn-icons-png.flaticon.com/128/1633/1633686.png"
+                                alt="contacto"
+                                /></a>
                 </div>
             </header>
 

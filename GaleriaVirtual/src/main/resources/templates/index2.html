@@ -33,6 +33,8 @@
                             src="https://cdn-icons-png.flaticon.com/512/1828/1828499.png"
                             alt="Login"
                             /></a>
+                    <p th:if="${session.usuariosession != null }" th:text="${session.usuariosession.nickname}"></p>   
+
                     <a href="/registro"><img
                             class="icononav"
                             src="https://cdn-icons-png.flaticon.com/512/2921/2921087.png"
