@@ -40,15 +40,13 @@
 
                 <div class="col-md-3 text-end">
 
-                    <a th:unless="${session.usuariosession == null }" href="/logout">
-
-                            <a href="/login" ><img
+<!--                    <a th:unless="${session.usuariosession == null }" href="/logout"</a>-->
+<!--<p th:if="${session.usuariosession != null }" th:text="${session.usuariosession.nickname}"></p>-->
+                       <a href="/login" ><img
                                 class="icononav"
                                 src="https://cdn-icons-png.flaticon.com/512/1828/1828499.png"
                                 alt="Login"
                                 /></a>
-
-                        <p th:if="${session.usuariosession != null }" th:text="${session.usuariosession.nickname}"></p>   
 
                         <a href="/registro"><img
                                 class="icononav"
