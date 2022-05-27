@@ -4,13 +4,6 @@ body{
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-}
-#header{
-    background-color: white !important;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: -2% ;
 }
 .btn {
     color: white !important;
@@ -87,9 +80,8 @@ td{
     font-size: 10px !important;
 }
 h10{
-    font-size: small;  
-}
-.i{
-
+    font-size: small; 
+    text-align: right;
+    color: black;
 }
 
