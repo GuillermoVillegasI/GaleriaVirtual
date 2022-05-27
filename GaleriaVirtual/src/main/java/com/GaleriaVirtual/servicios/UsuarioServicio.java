@@ -102,7 +102,7 @@ public class UsuarioServicio implements UserDetailsService{
         if (mail == null || mail.isEmpty()) {
             throw new ErrorServicio("El mail no puede ser nulo.");
         }
-        if (contrasenia1 == null || contrasenia1.isEmpty() || contrasenia1.length() <= 7) { //ver que tenga may y num
+        if (contrasenia1 == null || contrasenia1.isEmpty() || contrasenia1.length() <= 7) { 
             throw new ErrorServicio("La contraseña no puede ser nula y debe tener mas de 7 caracteres.");
         }
         if ( !contrasenia1.equals(contrasenia2)) {
