@@ -1,8 +1,21 @@
+/*#header{
+    background-color: white !important;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: -2% ;
+}*/
+body{
+  background-image: url(img/bg-registration-form-1.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .contenedor{
   display: grid;
   grid-template-columns: 1fr 1fr ;
   padding-top: 2%;
-  padding-left: 7.5%;
+  padding-left: 30%;
   padding-right: 7.5%;
   padding-bottom: 2%;
 }
@@ -49,7 +62,7 @@ input[type=number] {
   border-radius: 5px;
   box-sizing: border-box;
 }
-Input[type=file] {
+input[type=file] {
   width: 100%;
   padding: 3px ;
   margin: 6px ;

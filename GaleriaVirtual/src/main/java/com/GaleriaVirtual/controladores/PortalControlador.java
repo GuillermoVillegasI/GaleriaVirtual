@@ -35,11 +35,11 @@ public class PortalControlador {
     public String index2() {
         return "index2.html";
     }
-    
+  
     @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
-    @GetMapping("/altaform")
-    public String altaform() {
-        return "altaform.html";
+    @GetMapping("/altadeobras")
+    public String altadeobras() {
+        return "altadeobras.html";
     }
 
     @GetMapping("/contacto")
