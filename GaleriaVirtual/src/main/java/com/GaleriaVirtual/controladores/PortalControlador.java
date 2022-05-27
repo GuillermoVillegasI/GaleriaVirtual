@@ -35,9 +35,9 @@ public class PortalControlador {
         return "index2.html";
     }
 
-    @GetMapping("/altaform")
-    public String altaform() {
-        return "altaform.html";
+    @GetMapping("/altadeobras")
+    public String altadeobras() {
+        return "altadeobras.html";
     }
 
     @GetMapping("/contacto")
