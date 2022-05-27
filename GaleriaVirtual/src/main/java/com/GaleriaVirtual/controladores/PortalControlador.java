@@ -8,6 +8,7 @@ import com.GaleriaVirtual.servicios.UsuarioServicio;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,8 @@ public class PortalControlador {
     public String index2() {
         return "index2.html";
     }
-
+    
+    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @GetMapping("/altaform")
     public String altaform() {
         return "altaform.html";
