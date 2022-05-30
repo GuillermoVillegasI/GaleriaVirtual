@@ -4,11 +4,13 @@ import com.GaleriaVirtual.entidades.Obra;
 import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.servicios.ObraServicio;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +25,14 @@ public class ObraControlador {
 
     @Autowired
     private ObraServicio obraServicio;
-
-    @GetMapping("/obras")
-    public String obras() {
-        return "obras.html";
-    }
-
+    
+  // @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+ //   @GetMapping("/obras")
+ //   public String obras() {
+ //       return "obras.html";
+ //   }
+    
+    //@PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @PostMapping("/crear")
     public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
@@ -55,5 +59,21 @@ public class ObraControlador {
         modelo.put("titulo", "Tu obra fue cargada con Exito!");
         return "/obras.html";
 
+    }
+    @GetMapping("/obras")
+    public String obras(@RequestParam(required = false) String categoria, ModelMap modelo) throws ErrorServicio {
+
+        List<Obra> obras = new ArrayList<>();
+
+        if (categoria == null) {
+            obras = obraServicio.buscarTodas();
+        } else {
+            Categoria parsedCategoria = Categoria.valueOf(categoria);
+            obras = obraServicio.buscarPorCategoria(parsedCategoria);
+        }
+
+        modelo.put("obras", obras);
+
+        return "obras.html";
     }
 }
