@@ -20,7 +20,7 @@ public class FotoControlador {
     @Autowired
     private FotoRepositorio fotoRepositorio;
     
-    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+  //  @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @GetMapping("/{id}")
     public ResponseEntity<byte[]> photo(@PathVariable String id) {
         Foto foto = fotoRepositorio.getById(id);
