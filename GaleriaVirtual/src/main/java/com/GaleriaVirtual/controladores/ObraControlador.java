@@ -25,13 +25,13 @@ public class ObraControlador {
     @Autowired
     private ObraServicio obraServicio;
     
-    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+//    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @GetMapping("/obras")
     public String obras() {
         return "obras.html";
     }
     
-    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+//    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @PostMapping("/crear")
     public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
