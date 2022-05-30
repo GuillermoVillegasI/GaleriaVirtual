@@ -1,9 +1,9 @@
-/*#header{
+#header{
     background-color: white !important;
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: -2% ;
-}*/
+}
 body{
   background-image: url(img/bg-registration-form-1.png);
   background-size: cover;
@@ -83,4 +83,7 @@ input[type=submit] {
 }
 input[type=submit]:hover {
   background-color: #060706;
+}
+.footer{
+  background-color: white;
 }
