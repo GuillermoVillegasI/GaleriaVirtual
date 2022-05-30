@@ -23,7 +23,7 @@
     <div class="col">
       <div class="card h-100" th:each="obra, i : ${obras}">
         <div class="card text-white bg-dark mb-3" th:id="${'heading' + i.index}">
-          <img src="/Users/maalejandraguastavino/Desktop/PENDIENTES/proyecto/carpeta sin título/4a.png">
+            <img th:src="@{/foto/{id}}">
           <div class="card-body">
             <h5 class="card-title" th:text="${obra.titulo}"></h5>
             <p class="card-text" th:text="${obra.descripcion}"></p>
