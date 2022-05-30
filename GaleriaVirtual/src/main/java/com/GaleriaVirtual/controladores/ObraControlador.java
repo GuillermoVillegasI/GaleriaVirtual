@@ -52,8 +52,33 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
-        modelo.put("titulo", "Tu obra fue cargada con Exito!");
+        modelo.put("titulo", "Tu obra fue cargada con exito!");
         return "/obras.html";
 
     }
+    
+    public String editar (ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
+            @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam float precio,
+            @RequestParam Categoria categoria){
+        
+        try {
+            obraServicio.editar(titulo, titulo, tamanio, artista, descripcion, anio, cantidad, 0, categoria, titulo, tamanio);
+        } catch (ErrorServicio e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("titulo", titulo);
+            modelo.put("tamaño", tamanio);
+            modelo.put("artista", artista);
+            modelo.put("descripcion", descripcion); 
+            modelo.put("anio", anio);
+            modelo.put("cantidad", cantidad);   
+            modelo.put("precio", precio);
+            modelo.put("categoria", categoria);
+            return "/obra";
+        }
+        modelo.put("exito", "Se edito la obra '" + titulo + "' con exito!");
+        return "/obra";
+        
+    }
+    
+    
 }
