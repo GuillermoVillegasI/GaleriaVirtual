@@ -1,19 +1,27 @@
 body{
-    background-image: url(img/bg-registration-form-1.png);  
+    background-image: url(img/bg-registration-form-1.png);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
 }
-h1{
-
-    text-align: center;
+.btn {
+    color: white !important;
+}
+.mb-4{
+    margin-bottom: 0px !important ;
 }
 .nav{
     background-color: transparent !important;
-
 }
+.icononav{
+    width: 30px;
+    margin: 10px;
+}
+.footer{
+    background-color: white;
+}
+
 .tiposarte{
     list-style-type: none;
     padding: 0;
@@ -33,14 +41,15 @@ h1{
     display: block;
 }
 .tiposarte li a:hover{
-    background-color:lightgray;
+    background-color: black;
+    color: white;
 }
-/*pie de pagina*/
-
 .tabla{
     margin: 100px;
     padding: 50px;
-
+    caption-side: bottom;
+    border-collapse: collapse;
+    text-align: justify;
 }
 .titulofooter{
     font-size: x-large;
@@ -59,8 +68,20 @@ td{
     padding: 30px;
 }
 .cont{
-
-
     text-align: center;
-
 }
+.footer{
+    font-size: 10px !important;
+}
+.descripfooter{
+    font-size: 10px !important;
+}
+.titulofooter{
+    font-size: 10px !important;
+}
+h10{
+    font-size: small; 
+    text-align: right;
+    color: black;
+}
+

@@ -8,6 +8,7 @@ import com.GaleriaVirtual.servicios.UsuarioServicio;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,13 +26,25 @@ public class PortalControlador {
     @Autowired
     private ObraServicio obraServicio;
 
+    @GetMapping("/indexpage")
+    public String index() {
+        return "index.html";
+    }
+
     @GetMapping()
     public String index2() {
         return "index2.html";
     }
-    @GetMapping("/altaform")
-    public String altaform (){
-        return "altaform.html";
+  
+    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+    @GetMapping("/altadeobras")
+    public String altadeobras() {
+        return "altadeobras.html";
+    }
+
+    @GetMapping("/contacto")
+    public String contacto() {
+        return "contacto.html";
     }
 
     @GetMapping("/index")
@@ -61,7 +74,7 @@ public class PortalControlador {
 
         try {
             usuarioServicio.registrar(nickname, mail, contrasenia1, contrasenia2);
-            
+
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("nickname", nickname);
@@ -78,9 +91,12 @@ public class PortalControlador {
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(required = false) String error, ModelMap model) {
+    public String login(@RequestParam(required = false) String error, @RequestParam(required = false) String logout, ModelMap model) {
         if (error != null) {
             model.put("error", "Usuario o contraseña incorrecta  .");
+        }
+        if (logout != null) {
+            model.put("logout", "Cerraste sesión correctamente.");
         }
         return "/login";
     }
