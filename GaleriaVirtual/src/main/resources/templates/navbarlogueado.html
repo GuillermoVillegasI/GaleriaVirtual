@@ -21,64 +21,35 @@
 
     <!--    NAVBAR JUANMA-->
     <body>
-        <br>
         <div class="containere sticky-top" id="header" th:fragment="navbar">
             <header
                 class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                 <a class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none" href="/indexpage">
                     <img src="https://i.postimg.cc/qB2Wcx9k/Nombre-galeria.png" height="100%" width="100%">
                 </a>
-                <div class="col-md-3">  
-                     <h10> Hola! </h10> <p th:if="${session.usuariosession != null }" th:text="${session.usuariosession.nickname}"></p>
-                  
+                <div class="col-md-3">
+                    <h10 th:if="${session.usuariosession != null }" th:text="${session.usuariosession.nickname}"> </h10>  
                     <a href="/login">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-person-check-fill" viewBox="0 0 15 15">
-                            <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                            <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-person-check-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                         </svg>
-                    </a> <br>
-                    <h10>Salir</h10> 
+                    </a><br>
+                    <h10>Salir</h10>  
                     <a href="/logout">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-person-x-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
                         </svg>
-                    </a>  <br>
+                    </a><br>
                     <h10>Contacto</h10>
                     <a href="/logout">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
                         </svg>
                     </a>
                 </div>
             </header>
         </div>
-<!--                NAVBAR BARBY
-            <nav class="navbar navbar-expand-lg bg-transparent" >
-                <div class="tiposarte">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/index">Obras</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Oleo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Fotografia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Serigrafía</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Escultura</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Artesanía</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>-->
-
-   
 
         <div class="footer" th:fragment="footer">
             <table class="tabla">
