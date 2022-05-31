@@ -22,11 +22,11 @@
     <div class="col">
       <div class="card h-100" th:each="obra, i : ${obras}">
         <div class="card mb-3" th:id="${'heading' + i.index}">
-          <img src="/Users/maalejandraguastavino/Desktop/PENDIENTES/proyecto/carpeta sin título/4a.png">
+          <img src="">
           <div class="card-body">
             <h5 class="card-title" th:text="${obra.titulo}"></h5>
             <p class="card-text" th:text="${obra.descripcion}"></p>
-            <h6 class="card-text" th:text="${obra.tamaño}"></h6>
+            <h6 class="card-text" th:text="${obra.tamanio}"></h6>
             <h4 class="card-text" th:text="${obra.precio}"></h4>
           </div>
         </div>
