@@ -60,10 +60,20 @@ img{
     padding-top: 5%;
 }
 .boton a{
-    
+    color: white;
     height: 40%;
     justify-content: center;
+    border: 2px solid rgb(53, 56, 64);
     border-radius: 15px;
+    background-color: rgb(53, 56, 64); 
+}
+.boton a:hover{
+    color: rgb(53, 56, 64);
+    height: 40%;
+    justify-content: center;
+    border: 2px solid rgb(53, 56, 64);
+    border-radius: 15px;
+    background-color: transparent; 
 }
 .tarjeta{
     display: flex;

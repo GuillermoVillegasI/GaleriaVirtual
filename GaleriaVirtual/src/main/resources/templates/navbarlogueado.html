@@ -20,7 +20,7 @@
             href="https://fonts.googleapis.com/css2?family=Fredoka&family=Poppins:wght@200&family=Questrial&family=Righteous&family=Saira:wght@100&display=swap"
             rel="stylesheet" />
         <link rel="stylesheet" href="././stylenavbar.css" />
-        
+
 
         <title></title>
 
@@ -38,24 +38,34 @@
                         <img src="https://i.postimg.cc/qB2Wcx9k/Nombre-galeria.png" height="100%" width="100%">
                     </a>
                     <div class="col-md-3">
-                        <h10 class="textnav" th:if="${session.usuariosession != null }" th:text="${'Hola ' + session.usuariosession.nickname}"> </h10>  
-                     <a href="/login" ><img
-                            class="icononav"
-                            src="https://cdn-icons-png.flaticon.com/512/1828/1828499.png"
-                            alt="Login"
-                            /></a>
+                        <h10 class="textnav" th:if="${session.usuariosession != null }" th:text="${'Hola ' + session.usuariosession.nickname}"></h10>  
 
-                    <a href="/logout"><img
-                            class="icononav"
-                            src="https://cdn-icons-png.flaticon.com/512/2921/2921087.png"
-                            alt="logout"
-                            /></a>
+                        <div class="contenedoricon"> 
+                            <a href="/logout" ><img
+                                    class="icononav"
+                                    src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png"
+                                    alt="Logout"
+                                    /><div class="centrado">Logout</div></a></div>
+                        <div class="contenedoricon">
+                            <a href="/contacto"><img
+                                    class="icononav"
+                                    src="https://cdn-icons-png.flaticon.com/128/1633/1633686.png"
+                                    alt="contacto"
+                                    /><div class="centrado">Contacto</div></a></div>
+                        <div class="contenedoricon">
+                            <a  th:href="@{/altadeobras}"><img
+                                    class="icononav"
+                                    src="https://cdn-icons-png.flaticon.com/512/748/748248.png"
+                                    alt="contacto"
+                                    /><div class="centrado">Vender</div></a></div>
+                        <div class="contenedoricon">
+                            <a href="/checkoutcarrito"><img
+                                    class="icononav"
+                                    src="https://cdn-icons-png.flaticon.com/512/711/711192.png"
+                                    alt="carrito"
+                                    /><div class="centrado">Carrito</div></a></div>
 
-                    <a href="/contacto"><img
-                            class="icononav"
-                            src="https://cdn-icons-png.flaticon.com/128/1633/1633686.png"
-                            alt="contacto"
-                            /></a>
+
                     </div>
                 </header>
             </div>
