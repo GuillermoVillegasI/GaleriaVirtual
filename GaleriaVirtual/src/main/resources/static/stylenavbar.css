@@ -75,9 +75,9 @@ body{
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: black;
     font-size: 11px;
-    background-color: black;
+    background-color: orange;
     border-radius: 10px;
 }
 .footer{
@@ -106,8 +106,9 @@ body{
 
 }
 .tiposarte li a:hover{
-    background-color: black;
-    color: white;
+    background-color: orange;
+    color: black;
+   
 }
 .tabla{
     margin: 100px;
