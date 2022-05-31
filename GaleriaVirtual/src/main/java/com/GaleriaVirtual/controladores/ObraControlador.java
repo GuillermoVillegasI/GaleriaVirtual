@@ -57,10 +57,40 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
+<<<<<<< HEAD
         modelo.put("titulo", "Tu obra fue cargada con Exito!");
           return "redirect:/index";
+=======
+        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!"); 
+        return "/obras.html";
+>>>>>>> 33a4d5a6e9669022d6324d6a6e00e3ed02da47a9
 
     }
+    @PostMapping
+    public String editar (ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
+            @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam float precio,
+            @RequestParam Categoria categoria){
+        
+        try {
+            obraServicio.editar(titulo, titulo, tamanio, artista, descripcion, anio, cantidad, 0, categoria, titulo, tamanio);
+        } catch (ErrorServicio e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("titulo", titulo);
+            modelo.put("tamaño", tamanio);
+            modelo.put("artista", artista);
+            modelo.put("descripcion", descripcion); 
+            modelo.put("anio", anio);
+            modelo.put("cantidad", cantidad);   
+            modelo.put("precio", precio);
+            modelo.put("categoria", categoria);
+            return "/obra";
+        }
+        modelo.put("exito", "Se edito la obra '" + titulo + "' con exito!");
+        return "/obra";
+        
+    }
+    
+    
     @GetMapping("/obras")
     public String obras(@RequestParam(required = false) String categoria, ModelMap modelo) throws ErrorServicio {
 
