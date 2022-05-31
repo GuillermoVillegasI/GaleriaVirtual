@@ -36,7 +36,12 @@
                         </div>
                     </div>
                     <div class="card-footer" style="text-align: center;">
-                        <button type="button" class="btn btn-dark">COMPRAR</button>
+                          <a
+                                th:href="@{/obra/}+${obra.id}" 
+                                class="btn btn-dark btn-outline-warning bg-black "
+                                role="button"
+                                >COMPRAR</a
+                            >
                     </div>
                 </div>
             </div>
