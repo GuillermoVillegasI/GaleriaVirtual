@@ -1,7 +1,7 @@
 body 
 {
     font-Family: Poppins, sans-serif;
-    background-image: url(img/bg-registration-form-1.png);
+/*    background-image: url(img/bg-registration-form-1.png);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -11,20 +11,15 @@ div.desc
     text-shadow: 1px 1px;
     text-align: center;
 }
-div.gallery 
-{
-  
-    float: left;
-    margin: auto;
-} 
-/*div.gallery {
+div.gallery {
  display: flex;
  width: 100%;
  justify-content: space-around; 
  flex-wrap:wrap ;
  max-width: 1000px;
  margin: auto;
- }*/
+ float: left;
+ }
 
 div.gallery img {
  display: flex;
@@ -46,7 +41,7 @@ div.gallery img {
     text-align: center;
 }
 
-.col img {
+.col img{
     margin-top: 50px;
     margin-left: 15px;
     max-width: 1000px;
