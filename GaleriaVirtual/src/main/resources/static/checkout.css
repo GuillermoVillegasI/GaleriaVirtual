@@ -1,0 +1,18 @@
+
+
+.container {
+    background-color: white;
+    max-width: 1060px;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.w-100{
+    background-color: black;
+    border: 2px solid black;
+}
+.w-100:hover{
+    background-color: white;
+    border: 2px solid black;
+    color: black !important;
+}

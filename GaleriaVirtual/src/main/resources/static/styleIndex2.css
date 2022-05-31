@@ -1,141 +1,153 @@
 body{
-  background-image: url(https://img.freepik.com/foto-gratis/fondo-textura-madera-pintada-blanco_53876-108398.jpg?t=st=1651711051~exp=1651711651~hmac=d2a8adeeaa3548b2b596f4ea297e16a547678c6139e5d56cd87f77e008c8c698&w=1060);
-  background-size: cover;
+    background-image: url(https://img.freepik.com/foto-gratis/fondo-textura-madera-pintada-blanco_53876-108398.jpg?t=st=1651711051~exp=1651711651~hmac=d2a8adeeaa3548b2b596f4ea297e16a547678c6139e5d56cd87f77e008c8c698&w=1060);
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
 h1 {  
-  font-Family: Poppins, sans-serif;
-  font-weight: bolder;  
-  font-size: 3.2em; 
-  color: rgb(53, 56, 64); 
-  } 
-
+    font-Family: Poppins, sans-serif;
+    font-weight: bolder;  
+    font-size: 3.2em; 
+    color: rgb(53, 56, 64); 
+} 
 h4 {  
-  font-Family: Poppins, sans-serif;
-  font-weight: lighter;
-  color: rgb(53, 56, 64);
-  font-size: 2em;    
+    font-Family: Poppins, sans-serif;
+    font-weight: lighter;
+    color: rgb(53, 56, 64);
+    font-size: 2em;    
 }
-
+.icononav{
+    width: 30px;
+    margin: 10px;
+}
 .card{
-     
- box-shadow:
-  inset 0 -3em 3em rgba(0,0,0,0.1),
-           
+    box-shadow:
+        inset 0 -3em 3em rgba(0,0,0,0.1),
         0.3em 0.3em 1em rgba(0,0,0,0.3);
- border-radius: 5%;
-     
+    border-radius: 5%;
 }
-
 .card img{
- display: flex;
- align-items: center;
- justify-content: center;
- border-radius: 5% 5% 0% 0%;
-  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5% 5% 0% 0%;
 }
-
 img{
-  border-radius: 5%;
-  
-      
+    border-radius: 5%;
 }
-   
 .contenedor{
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  padding-top: 2%;
-  padding-left: 7.5%;
-  padding-right: 7.5%;
-  padding-bottom: 2%;
-
-    }
-
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    padding-top: 2%;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    padding-bottom: 2%;
+}
 .texto-boton{
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  
-  }
-
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
 .texto1{ 
-  display:flex;
-  flex-direction: column; 
-  justify-content:end;
+    display:flex;
+    flex-direction: column; 
+    justify-content:end;
 }
-
 .boton{
-  display: flex;
-  gap: 5%;
-  justify-content:flex-start;
-  padding-top: 5%;
+    display: flex;
+    gap: 5%;
+    justify-content:flex-start;
+    padding-top: 5%;
 }
-
-.boton button{
-  width: 25%;
-  height: 40%;
-  justify-content: center;
-  border-radius: 15px;
-  }
-
+.boton a{
+    color: white;
+    height: 40%;
+    justify-content: center;
+    border: 2px solid rgb(53, 56, 64);
+    border-radius: 15px;
+    background-color: rgb(53, 56, 64); 
+}
+.boton a:hover{
+    color: rgb(53, 56, 64);
+    height: 40%;
+    justify-content: center;
+    border: 2px solid rgb(53, 56, 64);
+    border-radius: 15px;
+    background-color: transparent; 
+}
 .tarjeta{
-  display: flex;
-  justify-content:right;
-    
+    display: flex;
+    justify-content:right;
 }
-
 #baner1{
-  display: flex;
-  justify-content: center;
-  height: 180px;
-  width: 100%;
-  padding: 2%;
-
-  
+    display: flex;
+    justify-content: center;
+    height: 180px;
+    width: 100%;
+    padding: 2%;
 }
-
-
 .baner2 {
-  display: flex;
-  width: 90%; 
-  height: 100%; 
-  object-fit: cover;
-  border: 2px solid rgb(238, 235, 235);
-  border-radius: 20px;  
-  background-image:url(https://i.postimg.cc/q7CKHJvy/pagina.png);
-  
-  background-size:100%;
-  align-items:center;
-  padding-left: 5%;
-  padding-right: 5%;
-  justify-content: space-between;
-  }
+    display: flex;
+    width: 90%; 
+    height: 100%; 
+    object-fit: cover;
+    border: 2px solid rgb(238, 235, 235);
+    border-radius: 20px;  
+    background-image:url(https://i.postimg.cc/q7CKHJvy/pagina.png);
+    background-size:100%;
+    align-items:center;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: space-between;
+}
 .baner2 p{
-  display: flex;
-  font-Family: Poppins, sans-serif;
-  font-weight:bold;  
-  font-size: 24px;  
-  color: rgb(71, 69, 69);
-  padding-top: 1.5%;
-  word-spacing: 0.2em;
+    display: flex;
+    font-Family: Poppins, sans-serif;
+    font-weight:bold;  
+    font-size: 24px;  
+    color: rgb(71, 69, 69);
+    padding-top: 1.5%;
+    word-spacing: 0.2em;
 }
-
 .baner2 button{
-  width: 8%;
-  height: 40%;
-  justify-content: center;
-  border-radius: 15px;
+    width: 8%;
+    height: 50%;
+    justify-content: center;
+    border-radius: 15px;
 }
-
 #header{
-  background-color: white;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: -2%;
-  
- 
-
+    background-color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: -2%;
 }
-
+.footer{
+    background-color: white;
+}
+.titulofooter{
+    font-size: x-large;
+    font-weight: 600;
+    font-size: small;
+    text-align:center ;
+}
+.descripfooter{
+    font-size: x-small; 
+    text-align: center;
+    text-align: justify;
+}
+td{
+    width: 23%;
+    padding: 30px;
+}
+.cont{
+    text-align: center;
+}
+.footer{
+    font-size: 10px !important;
+}
+.descripfooter{
+    font-size: 10px !important;
+}
+.titulofooter{
+    font-size: 10px !important;
+}
