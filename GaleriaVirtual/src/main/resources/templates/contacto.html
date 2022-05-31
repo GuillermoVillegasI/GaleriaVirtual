@@ -24,13 +24,19 @@
             />
         <link rel="stylesheet" href="././stylenavbar.css" />
         <link rel="stylesheet" href="././stylecontacto.css" />
+        
 
         <title>CONTACTO</title>
 
     </head>
     <body>
-        <div class="containere sticky-top" id="header" th:insert="navbar.html::navbar">
+        <div>
+            <h1 th:if="${session.usuariosession != null}" ><div class="containere sticky-top" id="header" th:insert="navbarlogueado.html::navbarlogueado">
 
+                </div></h1>
+            <h1 th:if="${session.usuariosession == null}" ><div class="containere sticky-top" id="header" th:insert="navbar.html::navbar">
+
+                </div></h1>
         </div>
         <div class="contacto">
             <div class="row">
