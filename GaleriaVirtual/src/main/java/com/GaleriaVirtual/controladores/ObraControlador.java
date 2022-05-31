@@ -55,7 +55,7 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
-        modelo.put("titulo", "Tu obra fue cargada con exito!");
+        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!"); 
         return "/obras.html";
 
     }
