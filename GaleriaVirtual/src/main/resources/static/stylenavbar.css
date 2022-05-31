@@ -10,7 +10,7 @@ body{
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-size: 13px;
+    font-size: 13px !important;
     font-family: "Poppins-Regular" !important;
 
 }
@@ -50,11 +50,35 @@ body{
     background-size: 100%!important;
 }
 .icononav{
-    width: 30px;
-    margin: 10px;
+    width: 27px!important;
+    margin: 10px!important;
+
 }
-.icononav:hover{
-    
+.icononav:hover {
+}
+.contenedoricon{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.centrado{
+    padding: 2px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 11px;
+}
+.centrado:hover{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 11px;
+    background-color: orange;
+    border-radius: 10px;
 }
 .footer{
     background-color: white;
@@ -82,8 +106,9 @@ body{
 
 }
 .tiposarte li a:hover{
-    background-color: black;
-    color: white;
+    background-color: orange;
+    color: black;
+   
 }
 .tabla{
     margin: 100px;
@@ -119,6 +144,23 @@ td{
 }
 .titulofooter{
     font-size: 10px !important;
+}
+.textnav{
+    font-size: 12px;
+    color: white;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 10px;
+    padding: 3px;
+    
+}
+h10{
+
+    font-size: 11px;
+}
+a{
+
+    font-size: 13px;
 }
 
 
