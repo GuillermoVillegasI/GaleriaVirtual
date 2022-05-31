@@ -10,7 +10,7 @@ body{
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-size: 13px;
+    font-size: 13px !important;
     font-family: "Poppins-Regular" !important;
 
 }
@@ -119,6 +119,17 @@ td{
 }
 .titulofooter{
     font-size: 10px !important;
+}
+.textnav{
+    font-size: 13px;
+}
+h10{
+   
+    font-size: 13px;
+}
+a{
+  
+    font-size: 13px;
 }
 
 
