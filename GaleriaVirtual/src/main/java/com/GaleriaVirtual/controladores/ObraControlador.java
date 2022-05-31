@@ -58,7 +58,7 @@ public class ObraControlador {
             return "registro.html";
         }
         modelo.put("titulo", "Tu obra fue cargada con Exito!");
-        return "/index.html";
+          return "redirect:/index";
 
     }
     @GetMapping("/obras")
