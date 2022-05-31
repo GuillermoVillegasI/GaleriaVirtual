@@ -57,8 +57,13 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
+<<<<<<< HEAD
+        modelo.put("titulo", "Tu obra fue cargada con Exito!");
+          return "redirect:/index";
+=======
         modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!"); 
         return "/obras.html";
+>>>>>>> 33a4d5a6e9669022d6324d6a6e00e3ed02da47a9
 
     }
     @PostMapping
