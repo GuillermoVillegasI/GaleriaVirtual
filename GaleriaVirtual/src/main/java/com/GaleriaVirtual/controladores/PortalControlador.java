@@ -36,7 +36,7 @@ public class PortalControlador {
         return "index2.html";
     }
   
- //   @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+//    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @GetMapping("/altadeobras")
     public String altadeobras() {
         return "altadeobras.html";

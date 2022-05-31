@@ -13,13 +13,12 @@
     </head>
 
     <body>
-         <div class="containere sticky-top" id="header" th:insert="navbar.html::navbar">
-
-        </div>
+         <div class="containere sticky-top" id="header" th:insert="navbar.html::navbar"></div>
+         
         <div class="row row-cols-1 row-cols-md-4 g-2">
-            <div class="col">
-                <div class="card h-100" th:each="obra, i : ${obras}">
-                    <div class="card text-white bg-dark mb-3" th:id="${'heading' + i.index}">
+            <div class="col" th:each="obra, i : ${obras}">
+                <div class="card h-100" >
+                    <div class="card text-white bg-dark mb-3">
                         <div th:if="${obra.fotos != null}" th:each="foto : ${obra.fotos}">
                             <img th:src="'/foto/' + ${foto.id}">
                         </div>
