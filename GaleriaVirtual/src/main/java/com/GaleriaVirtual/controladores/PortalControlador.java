@@ -35,7 +35,7 @@ public class PortalControlador {
     public String index2() {
         return "index2.html";
     }
-  
+
 //    @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @GetMapping("/altadeobras")
     public String altadeobras() {
@@ -45,6 +45,11 @@ public class PortalControlador {
     @GetMapping("/contacto")
     public String contacto() {
         return "contacto.html";
+    }
+
+    @GetMapping("/checkoutcarrito")
+    public String carrito() {
+        return "checkoutcarrito.html";
     }
 
     @GetMapping("/index")
