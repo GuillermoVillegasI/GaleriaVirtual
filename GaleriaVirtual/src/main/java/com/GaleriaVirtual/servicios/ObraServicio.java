@@ -151,15 +151,15 @@ public class ObraServicio {
 //    }
 
     public List<Obra> buscarPorCategoria(Categoria categoria) throws ErrorServicio {
-
         return obraRepositorio.buscarPorCategoria(categoria);
-
+    }
+    
+    public List<Obra> buscarObraPorUsuario(String id) throws ErrorServicio {
+        return obraRepositorio.buscarObraPorUsuario(id);
     }
 
     public List<Obra> buscarTodas() throws ErrorServicio {
-
         return obraRepositorio.findAll();
-
     }
 
 }

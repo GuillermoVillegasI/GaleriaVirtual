@@ -1,6 +1,7 @@
 package com.GaleriaVirtual.controladores;
 
 import com.GaleriaVirtual.entidades.Obra;
+import com.GaleriaVirtual.entidades.Usuario;
 import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.servicios.ObraServicio;
@@ -9,11 +10,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,15 +28,15 @@ public class ObraControlador {
 
     @Autowired
     private ObraServicio obraServicio;
-    
 
-  // @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
- //   @GetMapping("/obras")
- //   public String obras() {
- //       return "obras.html";
- //   }
+
+    // @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+    //   @GetMapping("/obras")
+    //   public String obras() {
+    //       return "obras.html";
+    //   }
     
-  //  @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+    //  @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @PostMapping("/crear")
     public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
@@ -41,9 +44,9 @@ public class ObraControlador {
             @RequestParam MultipartFile archivo, @RequestParam(required = false) String idUsuario) {
 
         try {
-            
+
             obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, 0, true, new Date(), categoria, archivo, idUsuario);
-       
+
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("titulo", titulo);
@@ -57,14 +60,57 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
-        modelo.put("titulo", "Tu obra fue cargada con Exito!");
-        return "/obra.html";
+        
+        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!");
+        return "redirect:/index";
+    }
+
+    @PostMapping
+    public String editar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
+            @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam float precio,
+            @RequestParam Categoria categoria) {
+
+        try {
+            obraServicio.editar(titulo, titulo, tamanio, artista, descripcion, anio, cantidad, 0, categoria, titulo, tamanio);
+        } catch (ErrorServicio e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("titulo", titulo);
+            modelo.put("tamaño", tamanio);
+            modelo.put("artista", artista);
+            modelo.put("descripcion", descripcion);
+            modelo.put("anio", anio);
+            modelo.put("cantidad", cantidad);
+            modelo.put("precio", precio);
+            modelo.put("categoria", categoria);
+            return "/obra";
+        }
+        modelo.put("exito", "Se edito la obra '" + titulo + "' con exito!");
+        return "/obra";
 
     }
+
+    @GetMapping("/obra/{id}")
+    public String buscarObra(@PathVariable("id") String id, ModelMap modelo) throws ErrorServicio {
+
+        try {
+            Obra obra = obraServicio.buscarPorID(id);
+
+            if (obra.getId() == null) {
+                throw new ErrorServicio("La obra no existe!");
+            } else {
+                modelo.put("obras", obra);
+            }           
+
+        } catch (ErrorServicio ex) {
+            modelo.put("Error", ex.getMessage());
+        }
+        return "obras.html";
+    }
+
     @GetMapping("/obras")
     public String obras(@RequestParam(required = false) String categoria, ModelMap modelo) throws ErrorServicio {
 
-        List<Obra> obras = new ArrayList<>();
+        List<Obra> obras = new ArrayList<>(); 
 
         if (categoria == null) {
             obras = obraServicio.buscarTodas();
@@ -76,5 +122,19 @@ public class ObraControlador {
         modelo.put("obras", obras);
 
         return "obras.html";
+    }
+
+    //@GetMapping(/mis-obras)
+    public String misObras(HttpSession session, String id, ModelMap model) throws ErrorServicio {
+        
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        
+        if (login == null) {
+            return "redirect:/login";
+        }
+        
+        List<Obra> obras = obraServicio.buscarObraPorUsuario(login.getId());
+        model.put("obras", obras);
+        return "obras";
     }
 }
