@@ -32,6 +32,24 @@ public class ObraControlador {
     public String index2() {
         return "index2.html";
     }
+    
+    @GetMapping("/obra/{id}")
+    public String buscarObra(@PathVariable("id") String id, ModelMap modelo) throws ErrorServicio {
+
+        try {
+            Obra obra = obraServicio.buscarPorID(id);
+
+            if (obra.getId() == null) {
+                throw new ErrorServicio("La obra no existe!");
+            } else {
+                modelo.put("obras", obra);
+            }           
+
+        } catch (ErrorServicio ex) {
+            modelo.put("Error", ex.getMessage());
+        }
+        return "obra.html";
+    }
 
     // @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     //   @GetMapping("/obras")
@@ -39,7 +57,6 @@ public class ObraControlador {
     //       return "obras.html";
     //   }
     //  @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
-    
     @PostMapping("/crear")
     public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
@@ -47,9 +64,9 @@ public class ObraControlador {
             @RequestParam MultipartFile archivo, @RequestParam(required = false) String idUsuario) {
 
         try {
-
-            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, 0, true, new Date(), categoria, archivo, idUsuario);
-
+            
+            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, precio, true, new Date(), categoria, archivo, idUsuario);
+       
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("titulo", titulo);
@@ -63,9 +80,8 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
-        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!"); 
-        return "redirect:/index";
-
+        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!");
+          return "redirect:/index";
     }
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable String id, ModelMap modelo){
@@ -115,7 +131,5 @@ public class ObraControlador {
         modelo.put("obras", obras);
 
         return "obras.html";
-    }
-    
-    
+    }  
 }

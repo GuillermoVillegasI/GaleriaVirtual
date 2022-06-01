@@ -1,61 +1,67 @@
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("././fonts/poppins/Poppins-Regular.ttf"); }
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("././fonts/poppins/Poppins-SemiBold.ttf"); }
 * {
     margin: 0;
     padding: 0;
     color: black;
-    font-weight: 600 !important;
+    font-weight: 100 !important;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    background: url(img/fondo-textura-madera-pintada-blanco_53876-108398.webp);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    font-family: "Poppins-Regular";
 
 }
-
-#header {
-    background-color: white !important;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: -2%;
-}
-
-.row {
+#fila {
     margin: 50px 100px !important;
- 
-}
-.col{
-    padding: 50px;
-    margin: auto !important;
     
 }
+#columna{
+    
+    padding: 10px;
+    margin: auto !important;
 
-img{
+
+}
+.imgobra{
+    margin: auto;
     display: block;
     margin: auto;
     width: 500px !important;
     min-width: 400px !important;
+    padding: 10px;
 }
 .card{
     
-    border-radius: 5%;
-    border: 0.5px  !important;
-    border-radius: 0 !important;
+    
+    margin: 100px;
+    border: 2px solid white;
+    border-radius: 30px;
+
+
 }
-.list-group{
-    font-size: 25px;
-    text-align: left;
+.grupolista{
+    font-size: 15px;
+    text-align: justify;
+
+}
+.grupolistavert{
+    font-size: 15px;
+    text-align: center;
+
 }
 #btnobra {
     font-weight: 600;
-    margin: 50px;
+    margin-top: 40px;
     background: black !important;
     border: 1px solid black !important;
 }
 
 #btnobra:hover {
-    margin: 50px;
-    background: transparent !important;
+    margin-top: 40px;
+    background: orange !important;
     color: black !important;
-    border: 1px solid #172570 !important;
+    border: 1px solid orange !important;
 }
+
