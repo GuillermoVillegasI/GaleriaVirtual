@@ -14,6 +14,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,10 +58,21 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
-        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!"); 
+        modelo.put("exito", "La obra '" + titulo + "' fue cargada con exito!"); 
         return "/obras.html";
 
     }
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable String id, ModelMap modelo){
+        
+        try {
+            Obra obra = obraServicio.buscarPorID(id);
+            modelo.put("obra", obra);
+        } catch (Exception e) {
+        }
+        
+        return "/editarObra.html";
+}
     @PostMapping
     public String editar (ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam float precio,
@@ -81,7 +93,7 @@ public class ObraControlador {
             return "/obra";
         }
         modelo.put("exito", "Se edito la obra '" + titulo + "' con exito!");
-        return "/obra";
+        return "/index.html";
         
     }
     
@@ -102,4 +114,6 @@ public class ObraControlador {
 
         return "obras.html";
     }
+    
+    
 }

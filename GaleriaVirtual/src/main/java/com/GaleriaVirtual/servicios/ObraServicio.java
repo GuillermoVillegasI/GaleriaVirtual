@@ -2,6 +2,7 @@ package com.GaleriaVirtual.servicios;
 
 import com.GaleriaVirtual.entidades.Foto;
 import com.GaleriaVirtual.entidades.Obra;
+import com.GaleriaVirtual.entidades.Usuario;
 import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.repositorios.ObraRepositorio;
@@ -74,7 +75,7 @@ public class ObraServicio {
 
     @Transactional(rollbackFor = {Exception.class})
     public Obra editar(String id, String titulo, String tamanio, String artista, String descripcion, Integer anio,
-            Integer cantidad, float precio, Categoria categoria, String fotoId, String usuarioId) throws ErrorServicio {
+            Integer cantidad, float precio, Categoria categoria, String usuarioId) throws ErrorServicio {
 
         if (titulo == null || titulo.isEmpty()) {
             throw new ErrorServicio("El titulo no puede ser nulo/vacio");
@@ -100,6 +101,8 @@ public class ObraServicio {
             obra.setCantidad(cantidad);
             obra.setPrecio(precio);
             obra.setCategoria(categoria);
+            Usuario usuario = usuarioServicio.buscarPorId(usuarioId);
+            obra.setUsuario(usuario);
 
             return obraRepositorio.save(obra);
         } else {
