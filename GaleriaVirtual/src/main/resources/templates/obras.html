@@ -29,7 +29,7 @@
                         <div th:if="${obra.fotos != null}" th:each="foto : ${obra.fotos}">
                             <img th:src="'/foto/' + ${foto.id}">
                         </div>
-
+                    </div>
                         <div class="card-body">
                             <h5 class="card-title" th:text="${obra.titulo}"></h5>
                             <h6 class="card-text" th:text="${obra.artista}"></h6>
@@ -37,7 +37,6 @@
                             <p class="card-text" th:text="${obra.descripcion}"></p>
                             <h4 class="card-text" th:text="${obra.precio}"></h4>
                         </div>
-                    </div>
                     <div class="card-footer" style="text-align: center;">
                         <a
                             th:href="@{/obra/}+${obra.id}" 
@@ -47,7 +46,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 <div class="footer" th:insert="navbar.html::footer"></div>
 </body>
