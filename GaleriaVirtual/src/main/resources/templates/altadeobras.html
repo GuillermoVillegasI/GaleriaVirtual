@@ -31,12 +31,13 @@
                 <div class="tarjeta">
                     <div class="card">
                         <h2>Ingreso de Obra</h2>
-                        <h4 th:text="${exito}"></h4>
+                        <h4 th:text="${titulo}"></h4>
                         <div class="row">
-                            <label for="artista">Artista</label>
-                            <input type="text" name="artista" class="form-control" placeholder="nombre del autor"
+                          <label for="artista">Artista</label>
+                          <input type="text" name="artista" class="form-control" placeholder="nombre del autor"
                                    style="font-size:small;">
-                            <div class="col">
+                          </div>
+                        <div class="col">
                                 <input type="text" name="anio" class="form-control" placeholder="Año de creacion..."
                                        style="font-size:small;">
                             </div>
@@ -44,29 +45,35 @@
                                 <input type="text" name="titulo" class="form-control" placeholder="Como la llamaremos..."
                                        style="font-size:small;">
                             </div>
-                            <label for="categoria" class="text">En que categoria se situa? </label>
-                            <select name="categoria">
-                                <option
-                                    th:each="categoria : ${T(com.GaleriaVirtual.entidades.enumeracion.Categoria).values()}"
-                                    th:value="${categoria}" th:text="${categoria.value}">
-                                </option>
-                            </select>
-                            <label for="tamanio">Tamaño disponible</label><br>
+                            <div class="col">
+                                <label for="categoria" class="text">En que categoria se situa? </label>
+                                <select name="categoria"  >
+                                    <option
+                                        th:each="categoria : ${T(com.GaleriaVirtual.entidades.enumeracion.Categoria).values()}"
+                                        th:value="${categoria}" th:text="${categoria.value}">
+                                    </option>
+                                </select>
+                            </div>
+<!--                            <label for="tamanio">Tamaño disponible</label><br>-->
                             <input type="text" name="tamanio" class="form-control"
                                    placeholder="Tamaño disponibles de obras que nos dejas" style="font-size:small;">       
-                            <label for="cantidad">Cantidad de Obras que ingresas</label><br>
+<!--                            <label for="cantidad">Cantidad de Obras que ingresas</label>-->
                             <input type="number" name="cantidad" class="form-control"
                                    placeholder="cantidad de obras que nos dejas" style="font-size:small;">
-                            <label for="precio">Precio</label>
-                            <input type="text" class="form-control" name="precio">
+                            <div class="input-group mb-3">
+                            <span class="input-group-text" style="font-size:small;">$</span>
+                            <input type="number" class="form-control" placeholder="Precio" 
+                                   style="font-size:small;"name="precio">
+                            <span class="input-group-text" style="font-size:small;">.00</span>
+                            </div>
                             <label for="descripcion">Descripcion</label>
                             <textarea class="form-control" name="descripcion"
                                       placeholder="Describi tu obra, en pocas palabras...."
-                                      style="width:600px; height:100px; font-size:small;">             
-                            </textarea>
+                                      style="width:700px; height:100px; font-size:small;">             
+                            </textarea> <br>
                             <div class="mb-2">
                                 <label for="formFile" class="form-label">Ingrese un archivo</label>
-                                <input class="form-control" name="archivo" type="file">
+                                <input class="form-control" name="archivo" type="file" style="font-size:small;">
                             </div>
                             <input type="submit" value="Enviar">
                         </div>

@@ -42,7 +42,7 @@ public class ObraControlador {
 
         try {
             
-            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, 0, true, new Date(), categoria, archivo, idUsuario);
+            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, precio, true, new Date(), categoria, archivo, idUsuario);
        
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
@@ -57,13 +57,8 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
-<<<<<<< HEAD
-        modelo.put("titulo", "Tu obra fue cargada con Exito!");
+        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!");
           return "redirect:/index";
-=======
-        modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!"); 
-        return "/obras.html";
->>>>>>> 33a4d5a6e9669022d6324d6a6e00e3ed02da47a9
 
     }
     @PostMapping
@@ -72,7 +67,7 @@ public class ObraControlador {
             @RequestParam Categoria categoria){
         
         try {
-            obraServicio.editar(titulo, titulo, tamanio, artista, descripcion, anio, cantidad, 0, categoria, titulo, tamanio);
+            obraServicio.editar(titulo, titulo, tamanio, artista, descripcion, anio, cantidad, precio, categoria, titulo, tamanio);
         } catch (ErrorServicio e) {
             modelo.put("error", e.getMessage());
             modelo.put("titulo", titulo);
