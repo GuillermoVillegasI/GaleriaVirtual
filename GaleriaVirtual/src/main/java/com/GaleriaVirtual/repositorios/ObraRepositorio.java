@@ -16,6 +16,6 @@ public interface ObraRepositorio extends JpaRepository<Obra, String> {
     @Query("SELECT o FROM Obra o WHERE o.categoria LIKE :categoria")
     public List<Obra> buscarPorCategoria(@Param("categoria") Categoria categoria);
 
-    @Query("SELECT o FROM Obra o WHERE o.usuario_id LIKE :id")
+    @Query("SELECT o FROM Obra o WHERE o.usuario.id LIKE :id")
     public List<Obra> buscarObraPorUsuario(@Param("id") String id);
 }
