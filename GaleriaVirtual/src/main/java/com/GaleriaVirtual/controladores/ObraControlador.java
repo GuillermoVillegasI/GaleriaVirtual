@@ -1,6 +1,7 @@
 package com.GaleriaVirtual.controladores;
 
 import com.GaleriaVirtual.entidades.Obra;
+import com.GaleriaVirtual.entidades.Usuario;
 import com.GaleriaVirtual.entidades.enumeracion.Categoria;
 import com.GaleriaVirtual.errores.ErrorServicio;
 import com.GaleriaVirtual.servicios.ObraServicio;
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -26,13 +28,12 @@ public class ObraControlador {
 
     @Autowired
     private ObraServicio obraServicio;
-    
-    
+
     @GetMapping("/")
     public String index2() {
         return "index2.html";
     }
-    
+
     @GetMapping("/obra/{id}")
     public String buscarObra(@PathVariable("id") String id, ModelMap modelo) throws ErrorServicio {
 
@@ -43,7 +44,7 @@ public class ObraControlador {
                 throw new ErrorServicio("La obra no existe!");
             } else {
                 modelo.put("obras", obra);
-            }           
+            }
 
         } catch (ErrorServicio ex) {
             modelo.put("Error", ex.getMessage());
@@ -64,9 +65,9 @@ public class ObraControlador {
             @RequestParam MultipartFile archivo, @RequestParam(required = false) String idUsuario) {
 
         try {
-            
+
             obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, precio, true, new Date(), categoria, archivo, idUsuario);
-       
+
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("titulo", titulo);
@@ -80,24 +81,27 @@ public class ObraControlador {
             modelo.put("archivo", archivo);
             return "registro.html";
         }
+
         modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!");
-          return "redirect:/index";
+        return "redirect:/index";
     }
+
     @GetMapping("/editar/{id}")
-    public String editar(@PathVariable String id, ModelMap modelo){
-        
+    public String editar(@PathVariable String id, ModelMap modelo) {
+
         try {
             Obra obra = obraServicio.buscarPorID(id);
             modelo.put("obra", obra);
         } catch (Exception e) {
         }
-        
+
         return "editarObra";
-}
+    }
+
     @PostMapping("/editar")
-    public String editar(ModelMap modelo,@RequestParam String id, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
+    public String editar(ModelMap modelo, @RequestParam String id, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam float precio,
-            @RequestParam Categoria categoria){
+            @RequestParam Categoria categoria) {
         try {
             obraServicio.editar(id, titulo, tamanio, artista, descripcion, anio, cantidad, precio, categoria);
         } catch (ErrorServicio e) {
@@ -113,7 +117,8 @@ public class ObraControlador {
             return "/obra.html";
         }
         modelo.put("exito", "Se edito la obra '" + titulo + "' con exito!");
-        return "/index.html";
+        return "/obra";
+
     }
 
     @GetMapping("/obras")
@@ -131,5 +136,19 @@ public class ObraControlador {
         modelo.put("obras", obras);
 
         return "obras.html";
-    }  
+    }
+
+    //@GetMapping(/mis-obras)
+    public String misObras(HttpSession session, String id, ModelMap model) throws ErrorServicio {
+
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+
+        if (login == null) {
+            return "redirect:/login";
+        }
+
+        List<Obra> obras = obraServicio.buscarObraPorUsuario(login.getId());
+        model.put("obras", obras);
+        return "obras";
+    }
 }
