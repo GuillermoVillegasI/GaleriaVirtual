@@ -32,6 +32,24 @@ public class ObraControlador {
     public String index2() {
         return "index2.html";
     }
+    
+    @GetMapping("/obra/{id}")
+    public String buscarObra(@PathVariable("id") String id, ModelMap modelo) throws ErrorServicio {
+
+        try {
+            Obra obra = obraServicio.buscarPorID(id);
+
+            if (obra.getId() == null) {
+                throw new ErrorServicio("La obra no existe!");
+            } else {
+                modelo.put("obras", obra);
+            }           
+
+        } catch (ErrorServicio ex) {
+            modelo.put("Error", ex.getMessage());
+        }
+        return "obra.html";
+    }
 
     // @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     //   @GetMapping("/obras")
