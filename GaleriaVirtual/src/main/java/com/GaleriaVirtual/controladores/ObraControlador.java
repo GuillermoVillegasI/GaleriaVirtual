@@ -21,20 +21,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/obra")
+@RequestMapping("/")
 public class ObraControlador {
 
     @Autowired
     private ObraServicio obraServicio;
     
-
-  // @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
- //   @GetMapping("/obras")
- //   public String obras() {
- //       return "obras.html";
- //   }
     
-  //  @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+    @GetMapping("/")
+    public String index2() {
+        return "index2.html";
+    }
+
+    // @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+    //   @GetMapping("/obras")
+    //   public String obras() {
+    //       return "obras.html";
+    //   }
+    //  @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
+    
     @PostMapping("/crear")
     public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
@@ -42,9 +47,9 @@ public class ObraControlador {
             @RequestParam MultipartFile archivo, @RequestParam(required = false) String idUsuario) {
 
         try {
-            
+
             obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, 0, true, new Date(), categoria, archivo, idUsuario);
-       
+
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("titulo", titulo);
@@ -77,7 +82,6 @@ public class ObraControlador {
     public String editar (ModelMap modelo,@RequestParam String id, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam float precio,
             @RequestParam Categoria categoria, @RequestParam String usuarioId){
-        
         try {
             obraServicio.editar(id, titulo, tamanio, artista, descripcion, anio, cantidad, precio, categoria, usuarioId);
         } catch (ErrorServicio e) {
@@ -85,19 +89,17 @@ public class ObraControlador {
             modelo.put("titulo", titulo);
             modelo.put("tamaño", tamanio);
             modelo.put("artista", artista);
-            modelo.put("descripcion", descripcion); 
+            modelo.put("descripcion", descripcion);
             modelo.put("anio", anio);
-            modelo.put("cantidad", cantidad);   
+            modelo.put("cantidad", cantidad);
             modelo.put("precio", precio);
             modelo.put("categoria", categoria);
             return "/obra";
         }
         modelo.put("exito", "Se edito la obra '" + titulo + "' con exito!");
-        return "/index.html";
-        
+        return "/index.html"
     }
-    
-    
+
     @GetMapping("/obras")
     public String obras(@RequestParam(required = false) String categoria, ModelMap modelo) throws ErrorServicio {
 

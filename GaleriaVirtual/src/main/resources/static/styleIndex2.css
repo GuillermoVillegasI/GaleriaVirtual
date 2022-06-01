@@ -139,15 +139,41 @@ td{
     width: 23%;
     padding: 30px;
 }
-.cont{
-    text-align: center;
+a{
+    text-decoration: none;
+    color: black;
+    
+    font-size: 13px;
 }
-.footer{
-    font-size: 10px !important;
+.infofooter{
+
+    text-align: left !important;
+    margin-top: 7px;
+    margin-left: 100px;
 }
-.descripfooter{
-    font-size: 10px !important;
+.horarios{
+
+    text-align: left !important;
+    margin-left: 120px;
 }
-.titulofooter{
-    font-size: 10px !important;
+.ico-footer{
+    width: 30px;
+    margin: 5px;
+}
+.icosociales{
+    width: 30px;
+    margin: 0.5em;
+}
+.justify{
+    text-align: justify;
+}
+#footer{
+    background-color: #fff;
+    opacity: 0.9;
+}
+.row{
+    font-size: 13px !important;
+}
+h6{
+    font-size: 13px !important;
 }
