@@ -138,8 +138,8 @@ public class ObraControlador {
         return "obras.html";
     }
 
-    //@GetMapping(/mis-obras)
-    public String misObras(HttpSession session, String id, ModelMap model) throws ErrorServicio {
+    @GetMapping("/misObras/{id}")
+    public String misObras(HttpSession session,@PathVariable ("id") String id, ModelMap model) throws ErrorServicio {
 
         Usuario login = (Usuario) session.getAttribute("usuariosession");
 
@@ -149,6 +149,6 @@ public class ObraControlador {
 
         List<Obra> obras = obraServicio.buscarObraPorUsuario(login.getId());
         model.put("obras", obras);
-        return "obras";
+        return "misObras.html";
     }
 }
