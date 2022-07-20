@@ -26,8 +26,7 @@ public class ObraControlador {
 
     @Autowired
     private ObraServicio obraServicio;
-    
-    
+
     @GetMapping("/")
     public String index2() {
         return "index2.html";
@@ -40,15 +39,17 @@ public class ObraControlador {
     //   }
     //  @PreAuthorize("hasAnyRole('ROL_USER_REGISTRADO')")
     @PostMapping("/crear")
-    public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
+    public String guardar(ModelMap modelo, @RequestParam String titulo, @RequestParam String tamanio,
+            @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad,
             @RequestParam float precio, @RequestParam Categoria categoria,
             @RequestParam MultipartFile archivo, @RequestParam(required = false) String idUsuario) {
 
         try {
-            
-            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, precio, true, new Date(), categoria, archivo, idUsuario);
-       
+
+            obraServicio.guardar(titulo, tamanio, artista, descripcion, anio, cantidad, precio, true, new Date(),
+                    categoria, archivo, idUsuario);
+
         } catch (ErrorServicio ex) {
             modelo.put("errorReg", ex.getMessage());
             modelo.put("titulo", titulo);
@@ -63,25 +64,27 @@ public class ObraControlador {
             return "registro.html";
         }
         modelo.put("titulo", "La obra '" + titulo + "' fue cargada con exito!");
-          return "redirect:/index";
+        return "redirect:/index";
     }
+
     @GetMapping("/editar/{id}")
-    public String editar(@PathVariable String id, ModelMap modelo){
-        
+    public String editar(@PathVariable String id, ModelMap modelo) {
+
         try {
             Obra obra = obraServicio.buscarPorID(id);
             modelo.put("obra", obra);
         } catch (Exception e) {
         }
-        
+
         return "/editarObra.html";
-}
+    }
+
     @PostMapping
-    public String editar (ModelMap modelo,@RequestParam String id, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
+    public String editar(ModelMap modelo, @RequestParam String id, @RequestParam String titulo, @RequestParam String tamanio, @RequestParam String artista,
             @RequestParam String descripcion, @RequestParam Integer anio, @RequestParam Integer cantidad, @RequestParam float precio,
-            @RequestParam Categoria categoria, @RequestParam String usuarioId){
+            @RequestParam Categoria categoria, @RequestParam String usuarioId) {
         try {
-          
+
             obraServicio.editar(id, titulo, tamanio, artista, descripcion, anio, cantidad, precio, categoria, usuarioId);
         } catch (ErrorServicio e) {
             modelo.put("error", e.getMessage());
@@ -114,5 +117,5 @@ public class ObraControlador {
         modelo.put("obras", obras);
 
         return "obras.html";
-    }  
+    }
 }
